@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/UI">
+        <file>UI/Play Button.png</file>
+        <file>UI/Game Screen.png</file>
+        <file>UI/Right Side Bar.png</file>
+        <file>UI/Start Screen.png</file>
+    </qresource>
+</RCC>
