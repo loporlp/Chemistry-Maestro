@@ -7,7 +7,7 @@
 #include <QGroupBox>
 
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(model& model, QWidget *parent)
     : QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
@@ -16,6 +16,9 @@ MainWindow::MainWindow(QWidget *parent)
     // Set up the start screen and game screen
     setupStartScreen();
     setupGameScreen();
+
+    setupModel(model);
+
 }
 
 
@@ -57,6 +60,11 @@ void MainWindow::setupGameScreen()
 
 
     //    ui->popupModal->setVisible(false);
+}
+
+void MainWindow::setupModel(model& model){
+    connect(this, &MainWindow::createElement, &model, &model::onCreateElement);
+
 }
 
 

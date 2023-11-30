@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QStackedWidget>
+#include "model.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -13,7 +14,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(model& model, QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
@@ -37,5 +38,10 @@ private:
 
     void setupStartScreen();
     void setupGameScreen();
+
+    void setupModel(model& model);
+
+signals:
+    void createElement(int index);
 };
 #endif // MAINWINDOW_H
