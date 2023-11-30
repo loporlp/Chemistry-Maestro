@@ -5,5 +5,9 @@
         <file>UI/StartScreenBackground.png</file>
         <file>UI/GameScreenBackground.png</file>
         <file>UI/popupModal.png</file>
+        <file>UI/Level Popup.png</file>
+        <file>UI/Game Screen-LEVEL2.png</file>
+        <file>UI/Game Screen-LEVEL3.png</file>
+        <file>UI/Game Screen-LEVEL4.png</file>
     </qresource>
 </RCC>

@@ -47,11 +47,11 @@ void MainWindow::setupGameScreen()
     // Connect slot for the Clear button
     connect(ui->clearButton, &QPushButton::clicked, this, &MainWindow::onClearButtonClicked);
 
-    //    // Connect slots for the Level buttons
-    //    connect(ui->level1Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
-    //    connect(ui->level2Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
-    //    connect(ui->level3Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
-    //    connect(ui->level4Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
+    // Connect slots for the Level buttons
+    connect(ui->level1Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
+    connect(ui->level2Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
+    connect(ui->level3Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
+    connect(ui->level4Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
 
     // Connect slots for the Chemical buttons
 
@@ -125,6 +125,34 @@ void MainWindow::onClearButtonClicked()
 void MainWindow::onLevelButtonClicked()
 {
     //TODO
+
+    // Check which level button was clicked
+    QPushButton* clickedButton = qobject_cast<QPushButton*>(sender());
+
+    if (!clickedButton)
+    {
+        // Handle the case where the sender is not a QPushButton
+        return;
+    }
+
+    // Change the background image based on the level button clicked
+    if (clickedButton == ui->level1Button)
+    {
+        // Set the background image for level 1
+        ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/GameScreenBackground.png);");
+    } else if (clickedButton == ui->level2Button)
+    {
+        // Set the background image for level 2
+        ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL2.png);");
+    } else if (clickedButton == ui->level3Button)
+    {
+        // Set the background image for level 3
+        ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL3.png);");
+    } else if (clickedButton == ui->level4Button)
+    {
+        // Set the background image for level 4
+        ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL4.png);");
+    }
 
 }
 
