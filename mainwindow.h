@@ -19,20 +19,20 @@ public:
 private slots:
     void showGameScreen();
     void resetGame();
+
     void showStatsPopup();
     void showHintsPopup();
+    void showHowToPlayPopup();
 
     void onChemicalButtonClicked(int number);
+
     void onClearButtonClicked();
+    void onCloseButtonClicked();
 
 private:
     Ui::MainWindow *ui;
-    QStackedWidget *stackedWidget;
 
     void setupStartScreen();
     void setupGameScreen();
-
-    // Left nav bar tab widget pointer
-    QTabWidget *leftNavBar;
 };
 #endif // MAINWINDOW_H
