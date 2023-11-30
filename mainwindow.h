@@ -43,5 +43,7 @@ private:
 
 signals:
     void createElement(int index);
+    void clearScene();
+    void updateLevel(int index);
 };
 #endif // MAINWINDOW_H

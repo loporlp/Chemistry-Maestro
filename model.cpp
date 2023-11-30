@@ -1,4 +1,5 @@
 #include "model.h"
+#include "QDebug"
 
 model::model(QObject *parent)
     : QObject{parent}
@@ -14,12 +15,15 @@ void model::populateReference(){
 
 void model::onCreateElement(int index){
     elementsInScene.push_back(elementReference[index]);
+    qDebug() << "created " << index;
 }
 
 void model::onUpdateLevel(int index){
     levelIndex = index;
+    qDebug() << "level: " << index + 1;
 }
 
 void model::onClearScene(){
     elementsInScene.clear();
+    qDebug() << "scene cleared";
 }

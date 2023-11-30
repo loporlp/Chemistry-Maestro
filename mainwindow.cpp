@@ -64,6 +64,8 @@ void MainWindow::setupGameScreen()
 
 void MainWindow::setupModel(model& model){
     connect(this, &MainWindow::createElement, &model, &model::onCreateElement);
+    connect(this, &MainWindow::clearScene, &model, &model::onClearScene);
+    connect(this, &MainWindow::updateLevel, &model, &model::onUpdateLevel);
 
 }
 
@@ -72,7 +74,7 @@ void MainWindow::showGameScreen()
 {
     // Switch to the game screen
     ui->stackedWidget->setCurrentIndex(1);
-
+    emit updateLevel(0);
     // Set start to level 1
     //ui->leftNavBar->setCurrentIndex(0);
 }
@@ -85,6 +87,7 @@ void MainWindow::restartGame()
 
     // Switch to the start screen
     ui->stackedWidget->setCurrentIndex(0);
+    emit clearScene();
 }
 
 
@@ -127,6 +130,7 @@ void MainWindow::onCloseButtonClicked() {
 void MainWindow::onClearButtonClicked()
 {
     //TODO
+    emit clearScene();
 }
 
 
@@ -148,17 +152,21 @@ void MainWindow::onLevelButtonClicked()
     {
         // Set the background image for level 1
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/GameScreenBackground.png);");
+        emit updateLevel(0);
     } else if (clickedButton == ui->level2Button)
     {
         // Set the background image for level 2
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL2.png);");
+        emit updateLevel(1);
     } else if (clickedButton == ui->level3Button)
     {
         // Set the background image for level 3
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL3.png);");
+        emit updateLevel(2);
     } else if (clickedButton == ui->level4Button)
     {
         // Set the background image for level 4
+        emit updateLevel(3);
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL4.png);");
     }
 
@@ -168,7 +176,7 @@ void MainWindow::onLevelButtonClicked()
 void MainWindow::onChemicalButtonClicked()
 {
     //TODO
-
+//    emit createElement(0);
 }
 
 
