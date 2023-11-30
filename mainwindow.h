@@ -18,16 +18,19 @@ public:
 
 private slots:
     void showGameScreen();
-    void resetGame();
+    void restartGame();
 
     void showStatsPopup();
     void showHintsPopup();
     void showHowToPlayPopup();
 
-    void onChemicalButtonClicked(int number);
+    void onCloseButtonClicked();
 
     void onClearButtonClicked();
-    void onCloseButtonClicked();
+
+    void onLevelButtonClicked();
+    void onChemicalButtonClicked();
+
 
 private:
     Ui::MainWindow *ui;
