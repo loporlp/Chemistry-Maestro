@@ -78,6 +78,8 @@ MainWindow::MainWindow(model& model, QWidget *parent)
             });
     //connect(this, &MainWindow::positionChanged, ui->frame, );
     connect(ui->ironButton, &QPushButton::clicked, this, &MainWindow::addBody);
+    // Test run
+    connect(ui->ironButton, &QPushButton::clicked, this, &MainWindow::onChemicalButtonClicked);
 
     timer->start(10);
     qDebug() << this->size().height() << "height";
@@ -334,12 +336,16 @@ void MainWindow::onLevelButtonClicked()
 
 void MainWindow::onChemicalButtonClicked()
 {
-    //TODO
-//    emit createElement(element::C);
+    // Test run
+    emit createElement(element::H);
+    emit createElement(element::O);
+    emit createElement(element::O);
 }
 
 void MainWindow::onSuccessfulCombination(molecule newMolecule){
+    // Test run
     // clear elements on screen, instantiate molecule physics object, unlock next level(?)
+    qDebug() << "Made water!";
 }
 
 
