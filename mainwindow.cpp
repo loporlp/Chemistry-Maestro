@@ -45,8 +45,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     // The extents are the half-widths of the box.
     groundBox.SetAsBox(50.0f, 10.0);
-//    leftWallBox.SetAsBox(1.0f, 10.0f, b2Vec2(0.0f, 5.0f), 90.0f);
-//    rightWallBox.SetAsBox(1.0f, 10.0f, b2Vec2(0.0f, 5.0f), 50.0f);
 
     leftWallBox.SetAsBox(1.0f, 15.0f);
     rightWallBox.SetAsBox(1.0f, 15.0f);
@@ -67,9 +65,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QImage *image = new QImage();
     image->load(
-//        "C:\\Users\\japan\\Desktop\\images v2\\tommyStare.png");
-          "C:\\Users\\japan\\Desktop\\david.png");
-    // ui->label->setPixmap(QPixmap::fromImage(image->scaled(100, 100, Qt::KeepAspectRatio)));
+          ":/UI/UI/david.png");
 
     connect(timer,
             &QTimer::timeout,
@@ -130,8 +126,7 @@ void MainWindow::addBody()
     QLabel *newLabel = new QLabel(this);
     QImage *image = new QImage();
     image->load(
-//        "C:\\Users\\japan\\Desktop\\images v2\\tommyStare.png");
-          "C:\\Users\\japan\\Desktop\\david.png");
+          ":/UI/UI/david.png");
     newLabel->setPixmap(QPixmap::fromImage(image->scaled(100, 100, Qt::KeepAspectRatio)));
     newLabel->show();
     newLabel->setFixedHeight(75);
