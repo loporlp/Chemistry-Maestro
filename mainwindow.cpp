@@ -329,7 +329,7 @@ void MainWindow::onLevelButtonClicked()
 void MainWindow::onChemicalButtonClicked()
 {
     //TODO
-//    emit createElement(0);
+//    emit createElement(element::C);
 }
 
 

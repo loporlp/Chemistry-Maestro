@@ -22,7 +22,7 @@ public:
 
 signals:
     void positionChanged(int ax, int ay);
-    void createElement(int index);
+    void createElement(element newElement);
     void clearScene();
     void updateLevel(int index);
 
