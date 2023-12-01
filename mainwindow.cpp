@@ -192,6 +192,8 @@ void MainWindow::showGameScreen()
 {
     // Switch to the game screen
     ui->stackedWidget->setCurrentIndex(1);
+    // model signals.
+    emit clearScene();
     emit updateLevel(0);
     // Set start to level 1
     //ui->leftNavBar->setCurrentIndex(0);
@@ -291,7 +293,8 @@ void MainWindow::onLevelButtonClicked()
 
         // remove the chemicals added to the world, change the current level value
         resetLevelData(1);
-
+        // model signals.
+        emit clearScene();
         emit updateLevel(0);
     } else if (clickedButton == ui->level2Button && currentLevel != 2)
     {
@@ -300,7 +303,8 @@ void MainWindow::onLevelButtonClicked()
 
         // remove the chemicals added to the world, change the current level value
         resetLevelData(2);
-
+        // model signals.
+        emit clearScene();
         emit updateLevel(1);
     } else if (clickedButton == ui->level3Button && currentLevel != 3)
     {
@@ -309,7 +313,8 @@ void MainWindow::onLevelButtonClicked()
 
         // remove the chemicals added to the world, change the current level value
         resetLevelData(3);
-
+        // model signals.
+        emit clearScene();
         emit updateLevel(2);
     } else if (clickedButton == ui->level4Button && currentLevel != 4)
     {
@@ -318,7 +323,8 @@ void MainWindow::onLevelButtonClicked()
 
         // remove the chemicals added to the world, change the current level value
         resetLevelData(4);
-
+        // model signals.
+        emit clearScene();
         emit updateLevel(3);
 
     }

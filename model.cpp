@@ -8,10 +8,18 @@ model::model(QObject *parent)
     populateRecipes();
 }
 
+/**
+ * @brief model::populateRecipes - Fills the recipies vector with recipes unique to each level.
+ */
 void model::populateRecipes(){
 
 }
 
+/**
+ * @brief model::checkForCombination - Sorts the reference array and the elements in scene array so they should be identical.
+ * Iterates through each entry to check if they are the same, if they are not identical, return, doing nothing. If they are identical
+ * send a signal to the view with the proper molecule to create.
+ */
 void model::checkForCombination(){
     // Sort both arrays so that if they are identical they can be checked sequentially.
     std::sort(levelRecipes[levelIndex].begin(), levelRecipes[levelIndex].end());
@@ -22,6 +30,7 @@ void model::checkForCombination(){
         // If the elements are not equal, return.
         if(levelRecipes[levelIndex][i] != elementsInScene[i]){
             return;
+            // or if we want a game over state emit a signal to do just that.
         }
     }
     // If all of the elements are equal, emit a signal to the view with the level product.

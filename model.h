@@ -14,14 +14,14 @@ public:
 private:
     int levelIndex;
 
+    // Elements currently in the scene. Clears after every level change or clear button press.
     std::vector<element> elementsInScene;
     // access into this by using levelIndex.
+    // A vector of vectors with elements for the solution to each level.
     std::vector<std::vector<element>> levelRecipes;
     // access into this by using levelIndex.
+    // A vector of molecules that correspont to the solution for each level.
     std::vector<molecule> levelProducts;
-
-    // a vector of vectors with the recipe for the level.
-    std::vector<std::vector<element>> levelSolutions;
 
     void populateRecipes();
 
