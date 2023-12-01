@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1000</width>
-    <height>650</height>
+    <height>653</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -905,6 +905,51 @@ QPushButton:pressed {
        <string/>
       </property>
      </widget>
+     <widget class="QFrame" name="beakerFrame">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>110</y>
+        <width>299</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/UI/UI/Beaker.png);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <zorder>beakerFrame</zorder>
+     <zorder>restartButton</zorder>
+     <zorder>level1Button</zorder>
+     <zorder>level2Button</zorder>
+     <zorder>level3Button</zorder>
+     <zorder>level4Button</zorder>
+     <zorder>howToPlayButton</zorder>
+     <zorder>clearButton</zorder>
+     <zorder>statsButton</zorder>
+     <zorder>hintButton</zorder>
+     <zorder>hydrogenButton</zorder>
+     <zorder>heliumButton</zorder>
+     <zorder>carbonButton</zorder>
+     <zorder>nitrogenButton</zorder>
+     <zorder>oxygenButton</zorder>
+     <zorder>sodiumButton</zorder>
+     <zorder>aluminiumButton</zorder>
+     <zorder>potassiumButton</zorder>
+     <zorder>calciumButton</zorder>
+     <zorder>ironButton</zorder>
+     <zorder>nickelButton</zorder>
+     <zorder>copperButton</zorder>
+     <zorder>zincButton</zorder>
+     <zorder>silverButton</zorder>
+     <zorder>tinButton</zorder>
+     <zorder>popupModal</zorder>
     </widget>
    </widget>
   </widget>

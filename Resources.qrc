@@ -9,5 +9,7 @@
         <file>UI/Game Screen-LEVEL2.png</file>
         <file>UI/Game Screen-LEVEL3.png</file>
         <file>UI/Game Screen-LEVEL4.png</file>
+        <file>UI/Beaker.png</file>
+        <file>UI/david.png</file>
     </qresource>
 </RCC>

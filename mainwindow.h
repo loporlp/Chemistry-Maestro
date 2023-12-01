@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QStackedWidget>
 #include "model.h"
+#include <Box2D/Box2D.h>
+#include <stdio.h>
+#include<QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +19,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(model& model, QWidget *parent = nullptr);
     ~MainWindow();
+
+signals:
+    void positionChanged(int ax, int ay);
 
 private slots:
     void showGameScreen();
@@ -32,9 +38,26 @@ private slots:
     void onLevelButtonClicked();
     void onChemicalButtonClicked();
 
+    /**
+     * @brief resetLevelData - Removes all non ground/wall bodies in the world, defaults all other level data, and
+     *        sets the current level value to that of the variable.
+     * @param newLevelValue - the new level to be set. If level is not intended to change,
+     *        pass in the current currentLevel value.
+     */
+    void resetLevelData(int32 newLevelValue);
+
+    void updateWorld(float32 timeStep, int32 velocityIterations, int32 positionIterations);
 
 private:
     Ui::MainWindow *ui;
+
+    b2Body *body;
+    b2World world;
+
+    std::vector<QLabel *> bodyDisplays;
+    std::vector<b2Body *> bodies;
+
+    int32 currentLevel;
 
     void setupStartScreen();
     void setupGameScreen();
@@ -45,5 +68,6 @@ signals:
     void createElement(int index);
     void clearScene();
     void updateLevel(int index);
+    void addBody();
 };
 #endif // MAINWINDOW_H
