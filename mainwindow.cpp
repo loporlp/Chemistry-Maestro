@@ -5,11 +5,9 @@
 #include <QDialog>
 #include <QLabel>
 #include <QGroupBox>
-#include <Box2D/Box2D.h>
-#include <stdio.h>
-#include<QTimer>
+#include <QTimer>
 #include <QDebug>
-#include<vector>
+#include <vector>
 
 
 MainWindow::MainWindow(model& model, QWidget *parent)

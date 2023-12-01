@@ -22,6 +22,9 @@ public:
 
 signals:
     void positionChanged(int ax, int ay);
+    void createElement(int index);
+    void clearScene();
+    void updateLevel(int index);
 
 private slots:
     void showGameScreen();
@@ -63,11 +66,7 @@ private:
     void setupGameScreen();
 
     void setupModel(model& model);
-
-signals:
-    void createElement(int index);
-    void clearScene();
-    void updateLevel(int index);
     void addBody();
+
 };
 #endif // MAINWINDOW_H
