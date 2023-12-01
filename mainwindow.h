@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QStackedWidget>
+#include <Box2D/Box2D.h>
+#include <stdio.h>
+#include<QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,6 +18,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+signals:
+    void positionChanged(int ax, int ay);
 
 private slots:
     void showGameScreen();
@@ -31,11 +37,18 @@ private slots:
     void onLevelButtonClicked();
     void onChemicalButtonClicked();
 
+    void updateWorld(float32 timeStep, int32 velocityIterations, int32 positionIterations);
 
 private:
     Ui::MainWindow *ui;
 
+    b2Body *body;
+    b2World world;
+    std::vector<QLabel *> bodyDisplays;
+    std::vector<b2Body *> bodies;
+
     void setupStartScreen();
     void setupGameScreen();
+    void addBody();
 };
 #endif // MAINWINDOW_H

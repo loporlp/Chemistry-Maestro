@@ -5,18 +5,142 @@
 #include <QDialog>
 #include <QLabel>
 #include <QGroupBox>
+#include <Box2D/Box2D.h>
+#include <stdio.h>
+#include<QTimer>
+#include <QDebug>
+#include<vector>
 
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    world(b2Vec2(0.0f, -10.0f))
 {
     ui->setupUi(this);
 
     // Set up the start screen and game screen
     setupStartScreen();
     setupGameScreen();
+
+    // define ground / wall bodies
+    b2BodyDef groundBodyDef;
+    b2BodyDef leftWallDef;
+    b2BodyDef rightWallDef;
+    groundBodyDef.position.Set(0.0f, -15.0f);
+    leftWallDef.position.Set(-.35f, -10.0f);
+    rightWallDef.position.Set(3.7f, -10.0f);
+
+    // Call the body factory which allocates memory for the ground body
+    // from a pool and creates the ground box shape (also from a pool).
+    // The body is also added to the world.
+    b2Body *groundBody = world.CreateBody(&groundBodyDef);
+    b2Body *leftWallBody = world.CreateBody(&leftWallDef);
+    b2Body *rightWallBody = world.CreateBody(&rightWallDef);
+
+    // Define the ground box shape.
+    b2PolygonShape groundBox;
+    b2PolygonShape leftWallBox;
+    b2PolygonShape rightWallBox;
+
+    // The extents are the half-widths of the box.
+    groundBox.SetAsBox(50.0f, 10.0);
+//    leftWallBox.SetAsBox(1.0f, 10.0f, b2Vec2(0.0f, 5.0f), 90.0f);
+//    rightWallBox.SetAsBox(1.0f, 10.0f, b2Vec2(0.0f, 5.0f), 50.0f);
+
+    leftWallBox.SetAsBox(1.0f, 15.0f);
+    rightWallBox.SetAsBox(1.0f, 15.0f);
+
+    // Add the ground fixture to the ground body.
+    groundBody->CreateFixture(&groundBox, 0.0f);
+    leftWallBody->CreateFixture(&leftWallBox, 0.0f);
+    rightWallBody->CreateFixture(&rightWallBox, 0.0f);
+
+    // Prepare for simulation. Typically we use a time step of 1/60 of a
+    // second (60Hz) and 10 iterations. This provides a high quality simulation
+    // in most game scenarios.
+    float32 timeStep = 1.0f / 60.0f;
+    int32 velocityIterations = 6;
+    int32 positionIterations = 2;
+
+    QTimer *timer = new QTimer(this);
+
+    QImage *image = new QImage();
+    image->load(
+//        "C:\\Users\\japan\\Desktop\\images v2\\tommyStare.png");
+          "C:\\Users\\japan\\Desktop\\david.png");
+    // ui->label->setPixmap(QPixmap::fromImage(image->scaled(100, 100, Qt::KeepAspectRatio)));
+
+    connect(timer,
+            &QTimer::timeout,
+            this,
+            [this, timeStep, velocityIterations, positionIterations]() {
+                updateWorld(timeStep, velocityIterations, positionIterations);
+            });
+    //connect(this, &MainWindow::positionChanged, ui->frame, );
+    connect(ui->ironButton, &QPushButton::clicked, this, &MainWindow::addBody);
+
+    timer->start(10);
+    qDebug() << this->size().height() << "height";
+    qDebug() << this->size().width() << "width";
 }
+
+void MainWindow::updateWorld(float32 timeStep, int32 velocityIterations, int32 positionIterations)
+{
+    // Instruct the world to perform a single step of simulation.
+    // It is generally best to keep the time step and iterations fixed.
+    world.Step(timeStep, velocityIterations, positionIterations);
+
+    int i = 0;
+    for (auto body : bodies) {
+        auto position = body->GetPosition();
+        bodyDisplays.at(i)->move((position.x + 2) * 100, (-1 * (position.y - 1) * 100) - 126);
+        //bodies = bodies->GetNext();
+        i++;
+    }
+}
+
+void MainWindow::addBody()
+{
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.position.Set(1.75f, 4.0f);
+    b2Body *body = world.CreateBody(&bodyDef);
+
+    // Define another box shape for our dynamic body.
+    b2PolygonShape dynamicBox;
+    dynamicBox.SetAsBox(0.33f, 0.33f);
+
+    // Define the dynamic body fixture.
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &dynamicBox;
+
+    // Set the box density to be non-zero, so it will be dynamic.
+    fixtureDef.density = 1.0f;
+
+    // Override the default friction.
+    fixtureDef.friction = 0.3f;
+
+    fixtureDef.restitution = 0.8f;
+
+    // Add the shape to the body.
+    body->CreateFixture(&fixtureDef);
+
+    //bodies->push_back(body);
+    QLabel *newLabel = new QLabel(this);
+    QImage *image = new QImage();
+    image->load(
+//        "C:\\Users\\japan\\Desktop\\images v2\\tommyStare.png");
+          "C:\\Users\\japan\\Desktop\\david.png");
+    newLabel->setPixmap(QPixmap::fromImage(image->scaled(100, 100, Qt::KeepAspectRatio)));
+    newLabel->show();
+    newLabel->setFixedHeight(75);
+    newLabel->setFixedWidth(75);
+
+    bodyDisplays.push_back(newLabel);
+    bodies.push_back(body);
+}
+
 
 
 MainWindow::~MainWindow()
@@ -54,7 +178,6 @@ void MainWindow::setupGameScreen()
     connect(ui->level4Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
 
     // Connect slots for the Chemical buttons
-
 
     //    ui->popupModal->setVisible(false);
 }
@@ -118,7 +241,14 @@ void MainWindow::onCloseButtonClicked() {
 
 void MainWindow::onClearButtonClicked()
 {
-    //TODO
+    for(b2Body *body : bodies) {
+        world.DestroyBody(body);
+    }
+    for(auto label : bodyDisplays) {
+        delete label;
+    }
+    bodies.clear();
+    bodyDisplays.clear();
 }
 
 
