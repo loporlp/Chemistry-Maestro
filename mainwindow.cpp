@@ -184,7 +184,7 @@ void MainWindow::setupModel(model& model){
     connect(this, &MainWindow::createElement, &model, &model::onCreateElement);
     connect(this, &MainWindow::clearScene, &model, &model::onClearScene);
     connect(this, &MainWindow::updateLevel, &model, &model::onUpdateLevel);
-
+    connect(&model, &model::successfulCombination, this, &MainWindow::onSuccessfulCombination);
 }
 
 
@@ -336,6 +336,10 @@ void MainWindow::onChemicalButtonClicked()
 {
     //TODO
 //    emit createElement(element::C);
+}
+
+void MainWindow::onSuccessfulCombination(molecule newMolecule){
+    // clear elements on screen, instantiate molecule physics object, unlock next level(?)
 }
 
 

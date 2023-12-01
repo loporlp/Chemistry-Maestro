@@ -41,6 +41,8 @@ private slots:
     void onLevelButtonClicked();
     void onChemicalButtonClicked();
 
+    void onSuccessfulCombination(molecule newMolecule);
+
     /**
      * @brief resetLevelData - Removes all non ground/wall bodies in the world, defaults all other level data, and
      *        sets the current level value to that of the variable.
