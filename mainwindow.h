@@ -6,7 +6,7 @@
 #include "model.h"
 #include <Box2D/Box2D.h>
 #include <stdio.h>
-#include<QLabel>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

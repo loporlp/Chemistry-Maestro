@@ -290,21 +290,11 @@ void MainWindow::onLevelButtonClicked()
     {
         // Set the background image for level 1
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/GameScreenBackground.png);");
-        emit updateLevel(0);
-    } else if (clickedButton == ui->level2Button)
-    {
-        // Set the background image for level 2
-        ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL2.png);");
-        emit updateLevel(1);
-    } else if (clickedButton == ui->level3Button)
-    {
-        // Set the background image for level 3
-        ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL3.png);");
-        emit updateLevel(2);
-    } else if (clickedButton == ui->level4Button)
 
         // remove the chemicals added to the world, change the current level value
         resetLevelData(1);
+
+        emit updateLevel(0);
     } else if (clickedButton == ui->level2Button && currentLevel != 2)
     {
         // Set the background image for level 2
@@ -312,6 +302,8 @@ void MainWindow::onLevelButtonClicked()
 
         // remove the chemicals added to the world, change the current level value
         resetLevelData(2);
+
+        emit updateLevel(1);
     } else if (clickedButton == ui->level3Button && currentLevel != 3)
     {
         // Set the background image for level 3
@@ -319,14 +311,18 @@ void MainWindow::onLevelButtonClicked()
 
         // remove the chemicals added to the world, change the current level value
         resetLevelData(3);
+
+        emit updateLevel(2);
     } else if (clickedButton == ui->level4Button && currentLevel != 4)
     {
         // Set the background image for level 4
-        emit updateLevel(3);
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL4.png);");
 
         // remove the chemicals added to the world, change the current level value
         resetLevelData(4);
+
+        emit updateLevel(3);
+
     }
 
 }
