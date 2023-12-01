@@ -905,7 +905,7 @@ QPushButton:pressed {
        <string/>
       </property>
      </widget>
-     <widget class="QFrame" name="frame">
+     <widget class="QFrame" name="beakerFrame">
       <property name="geometry">
        <rect>
         <x>290</x>
@@ -924,6 +924,32 @@ QPushButton:pressed {
        <enum>QFrame::Raised</enum>
       </property>
      </widget>
+     <zorder>beakerFrame</zorder>
+     <zorder>restartButton</zorder>
+     <zorder>level1Button</zorder>
+     <zorder>level2Button</zorder>
+     <zorder>level3Button</zorder>
+     <zorder>level4Button</zorder>
+     <zorder>howToPlayButton</zorder>
+     <zorder>clearButton</zorder>
+     <zorder>statsButton</zorder>
+     <zorder>hintButton</zorder>
+     <zorder>hydrogenButton</zorder>
+     <zorder>heliumButton</zorder>
+     <zorder>carbonButton</zorder>
+     <zorder>nitrogenButton</zorder>
+     <zorder>oxygenButton</zorder>
+     <zorder>sodiumButton</zorder>
+     <zorder>aluminiumButton</zorder>
+     <zorder>potassiumButton</zorder>
+     <zorder>calciumButton</zorder>
+     <zorder>ironButton</zorder>
+     <zorder>nickelButton</zorder>
+     <zorder>copperButton</zorder>
+     <zorder>zincButton</zorder>
+     <zorder>silverButton</zorder>
+     <zorder>tinButton</zorder>
+     <zorder>popupModal</zorder>
     </widget>
    </widget>
   </widget>

@@ -19,6 +19,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // temporary magic number - change later.
+    currentLevel = 1;
+
     // Set up the start screen and game screen
     setupStartScreen();
     setupGameScreen();
@@ -46,8 +49,8 @@ MainWindow::MainWindow(QWidget *parent)
     // The extents are the half-widths of the box.
     groundBox.SetAsBox(50.0f, 10.0);
 
-    leftWallBox.SetAsBox(1.0f, 15.0f);
-    rightWallBox.SetAsBox(1.0f, 15.0f);
+    leftWallBox.SetAsBox(1.0f, 55.0f);
+    rightWallBox.SetAsBox(1.0f, 55.0f);
 
     // Add the ground fixture to the ground body.
     groundBody->CreateFixture(&groundBox, 0.0f);
@@ -192,6 +195,7 @@ void MainWindow::showGameScreen()
 void MainWindow::restartGame()
 {
     // Clear the display labels in each level tab
+    resetLevelData(currentLevel);
 
     // Switch to the start screen
     ui->stackedWidget->setCurrentIndex(0);
@@ -236,12 +240,21 @@ void MainWindow::onCloseButtonClicked() {
 
 void MainWindow::onClearButtonClicked()
 {
+    resetLevelData(currentLevel);
+}
+
+void MainWindow::resetLevelData(int32 newLevelValue)
+{
+    currentLevel = newLevelValue;
+
     for(b2Body *body : bodies) {
         world.DestroyBody(body);
     }
+
     for(auto label : bodyDisplays) {
         delete label;
     }
+
     bodies.clear();
     bodyDisplays.clear();
 }
@@ -261,22 +274,34 @@ void MainWindow::onLevelButtonClicked()
     }
 
     // Change the background image based on the level button clicked
-    if (clickedButton == ui->level1Button)
+    if (clickedButton == ui->level1Button && currentLevel != 1)
     {
         // Set the background image for level 1
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/GameScreenBackground.png);");
-    } else if (clickedButton == ui->level2Button)
+
+        // remove the chemicals added to the world, change the current level value
+        resetLevelData(1);
+    } else if (clickedButton == ui->level2Button && currentLevel != 2)
     {
         // Set the background image for level 2
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL2.png);");
-    } else if (clickedButton == ui->level3Button)
+
+        // remove the chemicals added to the world, change the current level value
+        resetLevelData(2);
+    } else if (clickedButton == ui->level3Button && currentLevel != 3)
     {
         // Set the background image for level 3
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL3.png);");
-    } else if (clickedButton == ui->level4Button)
+
+        // remove the chemicals added to the world, change the current level value
+        resetLevelData(3);
+    } else if (clickedButton == ui->level4Button && currentLevel != 4)
     {
         // Set the background image for level 4
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL4.png);");
+
+        // remove the chemicals added to the world, change the current level value
+        resetLevelData(4);
     }
 
 }

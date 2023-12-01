@@ -37,6 +37,14 @@ private slots:
     void onLevelButtonClicked();
     void onChemicalButtonClicked();
 
+    /**
+     * @brief resetLevelData - Removes all non ground/wall bodies in the world, defaults all other level data, and
+     *        sets the current level value to that of the variable.
+     * @param newLevelValue - the new level to be set. If level is not intended to change,
+     *        pass in the current currentLevel value.
+     */
+    void resetLevelData(int32 newLevelValue);
+
     void updateWorld(float32 timeStep, int32 velocityIterations, int32 positionIterations);
 
 private:
@@ -44,8 +52,11 @@ private:
 
     b2Body *body;
     b2World world;
+
     std::vector<QLabel *> bodyDisplays;
     std::vector<b2Body *> bodies;
+
+    int32 currentLevel;
 
     void setupStartScreen();
     void setupGameScreen();
