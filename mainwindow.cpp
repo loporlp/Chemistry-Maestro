@@ -78,11 +78,15 @@ MainWindow::MainWindow(model& model, QWidget *parent)
             });
 
     //connect(this, &MainWindow::positionChanged, ui->frame, );
-    connect(ui->hydrogenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/hydrogen.png"); });
+    connect(ui->hydrogenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/hydrogen.png");
+        emit createElement(element::H);
+    });
     connect(ui->heliumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/helium.png"); });
     connect(ui->carbonButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/carbon.png"); });
     connect(ui->nitrogenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/nitrogen.png"); });
-    connect(ui->oxygenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/oxygen.png"); });
+    connect(ui->oxygenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/oxygen.png");
+        emit createElement(element::O);
+    });
     connect(ui->sodiumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/sodium.png"); });
     connect(ui->aluminiumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/aluminum.png"); });
     connect(ui->potassiumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/potassium.png"); });
