@@ -11,5 +11,19 @@
         <file>UI/Game Screen-LEVEL4.png</file>
         <file>UI/Beaker.png</file>
         <file>UI/david.png</file>
+        <file>UI/hydrogen.png</file>
+        <file>UI/oxygen.png</file>
+        <file>UI/aluminum.png</file>
+        <file>UI/calcium.png</file>
+        <file>UI/carbon.png</file>
+        <file>UI/copper.png</file>
+        <file>UI/helium.png</file>
+        <file>UI/iron.png</file>
+        <file>UI/nickel.png</file>
+        <file>UI/nitrogen.png</file>
+        <file>UI/potassium.png</file>
+        <file>UI/silver.png</file>
+        <file>UI/sodium.png</file>
+        <file>UI/zinc.png</file>
     </qresource>
 </RCC>

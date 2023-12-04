@@ -76,8 +76,24 @@ MainWindow::MainWindow(model& model, QWidget *parent)
             [this, timeStep, velocityIterations, positionIterations]() {
                 updateWorld(timeStep, velocityIterations, positionIterations);
             });
+
     //connect(this, &MainWindow::positionChanged, ui->frame, );
-    connect(ui->ironButton, &QPushButton::clicked, this, &MainWindow::addBody);
+    connect(ui->hydrogenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/hydrogen.png"); });
+    connect(ui->heliumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/helium.png"); });
+    connect(ui->carbonButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/carbon.png"); });
+    connect(ui->nitrogenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/nitrogen.png"); });
+    connect(ui->oxygenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/oxygen.png"); });
+    connect(ui->sodiumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/sodium.png"); });
+    connect(ui->aluminiumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/aluminum.png"); });
+    connect(ui->potassiumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/potassium.png"); });
+    connect(ui->calciumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/calcium.png"); });
+    connect(ui->ironButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/iron.png"); });
+    connect(ui->nickelButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/nickel.png"); });
+    connect(ui->copperButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/copper.png"); });
+    connect(ui->zincButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/zinc.png"); });
+    connect(ui->silverButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/silver.png"); });
+    connect(ui->tinButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/david.png"); });
+
     // Test run
     connect(ui->ironButton, &QPushButton::clicked, this, &MainWindow::onChemicalButtonClicked);
 
@@ -101,7 +117,7 @@ void MainWindow::updateWorld(float32 timeStep, int32 velocityIterations, int32 p
     }
 }
 
-void MainWindow::addBody()
+void MainWindow::addBody(QString imgPath)
 {
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
@@ -131,8 +147,8 @@ void MainWindow::addBody()
     QLabel *newLabel = new QLabel(this);
     QImage *image = new QImage();
     image->load(
-          ":/UI/UI/david.png");
-    newLabel->setPixmap(QPixmap::fromImage(image->scaled(100, 100, Qt::KeepAspectRatio)));
+          imgPath);
+    newLabel->setPixmap(QPixmap::fromImage(image->scaled(75, 75, Qt::KeepAspectRatio)));
     newLabel->show();
     newLabel->setFixedHeight(75);
     newLabel->setFixedWidth(75);

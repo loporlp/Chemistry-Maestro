@@ -68,7 +68,7 @@ private:
     void setupGameScreen();
 
     void setupModel(model& model);
-    void addBody();
+    void addBody(QString imgPath);
 
 };
 #endif // MAINWINDOW_H
