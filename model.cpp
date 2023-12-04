@@ -6,18 +6,43 @@ model::model(QObject *parent)
     : QObject{parent}
 {
     populateRecipes();
+    populateProducts();
 }
 
 /**
  * @brief model::populateRecipes - Fills the recipies vector with recipes unique to each level.
  */
 void model::populateRecipes(){
+    // Make sure to pre-sort these when adding! Smallest int value elements first!
+    // Level 1
     std::vector<element> water;
-    water.push_back(element::O);
     water.push_back(element::H);
     water.push_back(element::O);
+    water.push_back(element::O);
     levelRecipes.push_back(water);
-    qDebug() << "added water to recipes";
+    // Level 2
+
+    // Level 3
+
+    // Level 4
+
+    // Level 5
+
+    // ....
+}
+
+void model::populateProducts(){
+    // Level 1
+    levelProducts.push_back(molecule::Water);
+    // Level 2
+
+    // Level 3
+
+    // Level 4
+
+    // Level 5
+
+    // ....
 }
 
 /**
@@ -26,9 +51,7 @@ void model::populateRecipes(){
  * send a signal to the view with the proper molecule to create.
  */
 void model::checkForCombination(){
-    // Sort both arrays so that if they are identical they can be checked sequentially.
-    // this sort is giving segfaults.
-//    std::sort(levelRecipes[levelIndex].begin(), levelRecipes[levelIndex].end());
+    // Sort elements in scene array so that a successful combo can be detected.
     std::sort(elementsInScene.begin(), elementsInScene.end());
 
     // for each element in the current level recipe
@@ -50,12 +73,9 @@ void model::checkForCombination(){
  * @param index - The element reference index.
  */
 void model::onCreateElement(element newElement){
-    qDebug() << "pushing back element";
     elementsInScene.push_back(newElement);
-    qDebug() << "recipes size: " << levelRecipes[levelIndex].size() << "elements in scene: " << elementsInScene.size();
     // If the amount of elements in the scene matches the level recipe count, check for a combination.
     if(levelRecipes[levelIndex].size() == elementsInScene.size()){
-        qDebug() << "checking for combo";
         checkForCombination();
     }
 }

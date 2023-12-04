@@ -24,6 +24,7 @@ private:
     std::vector<molecule> levelProducts;
 
     void populateRecipes();
+    void populateProducts();
 
     void checkForCombination();
 
