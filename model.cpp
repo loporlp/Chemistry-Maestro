@@ -27,9 +27,9 @@ void model::populateRecipes(){
  */
 void model::checkForCombination(){
     // Sort both arrays so that if they are identical they can be checked sequentially.
-    // these sorts give seg faults :)
+    // this sort is giving segfaults.
 //    std::sort(levelRecipes[levelIndex].begin(), levelRecipes[levelIndex].end());
-//    std::sort(elementsInScene.begin(), elementsInScene.end());
+    std::sort(elementsInScene.begin(), elementsInScene.end());
 
     // for each element in the current level recipe
     for(unsigned int i = 0; i < levelRecipes[levelIndex].size(); i++){

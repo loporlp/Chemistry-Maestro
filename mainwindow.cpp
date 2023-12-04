@@ -337,8 +337,8 @@ void MainWindow::onLevelButtonClicked()
 void MainWindow::onChemicalButtonClicked()
 {
     // Test run
-    emit createElement(element::H);
     emit createElement(element::O);
+    emit createElement(element::H);
     emit createElement(element::O);
 }
 
