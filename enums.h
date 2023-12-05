@@ -23,7 +23,9 @@ enum class element{
 
 enum class molecule{
     Water,
-    CarbonDioxide,
+    StannousChloride,
+    Saltpetre,
+    SulfuricAcid
 };
 
 #endif // ENUMS_H
