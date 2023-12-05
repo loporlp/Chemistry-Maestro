@@ -17,8 +17,9 @@ MainWindow::MainWindow(model& model, QWidget *parent)
 {
     ui->setupUi(this);
     qApp->setWindowIcon(QIcon(":/UI/UI/oxygen.png"));
-    // temporary magic number - change later.
+
     currentLevel = 1;
+    bodiesLocked = false;
 
     // Set up the start screen and game screen
     setupStartScreen();
@@ -149,6 +150,8 @@ void MainWindow::updateWorld(float32 timeStep, int32 velocityIterations, int32 p
 
 void MainWindow::addBody(QString imgPath, float32 scale)
 {
+    if(bodiesLocked) { return; }
+
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set(1.75f, 4.0f);
@@ -315,6 +318,7 @@ void MainWindow::resetLevelData()
 
 void MainWindow::resetLevelData(int32 newLevelValue)
 {
+    bodiesLocked = false;
     currentLevel = newLevelValue;
 
     for(b2Body *body : bodies) {
@@ -410,7 +414,11 @@ void MainWindow::addChemical(QString imgPath)
         }
     });
     QTimer::singleShot(3500, this, SLOT(resetLevelData()));
-    QTimer::singleShot(3510, this, [this, imgPath] () {addBody(imgPath, 1.75); });
+    QTimer::singleShot(3510, this, [this, imgPath] () {
+        addBody(imgPath, 1.75);
+        bodiesLocked = true;
+    });
+
 }
 
 
@@ -419,6 +427,7 @@ void MainWindow::onSuccessfulCombination(molecule newMolecule){
     // clear elements on screen, instantiate molecule physics object, unlock next level(?)
     qDebug() << "Made water!";
     qDebug() << &newMolecule;
+
     switch(currentLevel)
     {
     case 1:

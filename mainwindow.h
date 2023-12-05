@@ -66,6 +66,7 @@ private:
     std::vector<b2Body *> bodies;
 
     int32 currentLevel;
+    bool bodiesLocked;
 
     void setupStartScreen();
     void setupGameScreen();
