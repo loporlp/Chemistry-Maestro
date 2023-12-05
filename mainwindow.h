@@ -71,5 +71,7 @@ private:
 
     void setupModel(model& model);
 
+    void setLableVisible(bool visible);
+
 };
 #endif // MAINWINDOW_H

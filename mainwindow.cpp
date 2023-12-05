@@ -270,6 +270,7 @@ void MainWindow::showStatsPopup()
 void MainWindow::showHintsPopup()
 {
     ui->popupModal->setVisible(true);
+    setLableVisible(false);
 
     // Connect the closeButton's clicked signal to a slot
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
@@ -279,6 +280,7 @@ void MainWindow::showHintsPopup()
 void MainWindow::showHowToPlayPopup()
 {
     ui->popupModal->setVisible(true);
+    setLableVisible(false);
 
     // Connect the closeButton's clicked signal to a slot
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
@@ -287,7 +289,7 @@ void MainWindow::showHowToPlayPopup()
 
 // Function to handle the closeButton click
 void MainWindow::onCloseButtonClicked() {
-
+    setLableVisible(true);
     if (ui->popupModal->isVisible()) {
         ui->popupModal->setVisible(false);
     }
@@ -388,6 +390,13 @@ void MainWindow::onChemicalButtonClicked()
 //    emit createElement(element::O);
 //    emit createElement(element::H);
 //    emit createElement(element::O);
+}
+
+void MainWindow::setLableVisible(bool visible){
+        for(auto label : bodyDisplays)
+        {
+            label->setVisible(visible);
+        }
 }
 
 void MainWindow::onSuccessfulCombination(molecule newMolecule){
