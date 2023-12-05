@@ -7,6 +7,18 @@ enum class element{
     H,
     O,
     C,
+    He,
+    N,
+    Na,
+    Al,
+    Ca,
+    K,
+    Fe,
+    Ni,
+    Cu,
+    Zn,
+    Ag,
+    Sn
 };
 
 enum class molecule{

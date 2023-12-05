@@ -78,25 +78,51 @@ MainWindow::MainWindow(model& model, QWidget *parent)
             });
 
     //connect(this, &MainWindow::positionChanged, ui->frame, );
-    connect(ui->hydrogenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/hydrogen.png");
+    connect(ui->hydrogenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/hydrogen.png", 1.0);
         emit createElement(element::H);
     });
-    connect(ui->heliumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/helium.png"); });
-    connect(ui->carbonButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/carbon.png"); });
-    connect(ui->nitrogenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/nitrogen.png"); });
-    connect(ui->oxygenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/oxygen.png");
+    connect(ui->heliumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/helium.png", 1.0);
+        emit createElement(element::He);
+    });
+    connect(ui->carbonButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/carbon.png", 1.0);
+        emit createElement(element::C);
+    });
+    connect(ui->nitrogenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/nitrogen.png", 1.0);
+        emit createElement(element::N);
+    });
+    connect(ui->oxygenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/oxygen.png", 1.0);
         emit createElement(element::O);
     });
-    connect(ui->sodiumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/sodium.png"); });
-    connect(ui->aluminiumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/aluminum.png"); });
-    connect(ui->potassiumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/potassium.png"); });
-    connect(ui->calciumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/calcium.png"); });
-    connect(ui->ironButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/iron.png"); });
-    connect(ui->nickelButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/nickel.png"); });
-    connect(ui->copperButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/copper.png"); });
-    connect(ui->zincButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/zinc.png"); });
-    connect(ui->silverButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/silver.png"); });
-    connect(ui->tinButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/david.png"); });
+    connect(ui->sodiumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/sodium.png", 1.0);
+        emit createElement(element::Na);
+    });
+    connect(ui->aluminiumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/aluminum.png", 1.0);
+        emit createElement(element::Al);
+    });
+    connect(ui->potassiumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/potassium.png", 1.0);
+        emit createElement(element::K);
+    });
+    connect(ui->calciumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/calcium.png", 1.0);
+        emit createElement(element::Ca);
+    });
+    connect(ui->ironButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/iron.png", 1.0);
+        emit createElement(element::Fe);
+    });
+    connect(ui->nickelButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/nickel.png", 1.0);
+        emit createElement(element::Ni);
+    });
+    connect(ui->copperButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/copper.png", 1.0);
+        emit createElement(element::Cu);
+    });
+    connect(ui->zincButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/zinc.png", 1.0);
+        emit createElement(element::Zn);
+    });
+    connect(ui->silverButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/silver.png", 1.0);
+        emit createElement(element::Ag);
+    });
+    connect(ui->tinButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/david.png", 1.0);
+        emit createElement(element::Sn);
+    });
 
     // Test run
     connect(ui->ironButton, &QPushButton::clicked, this, &MainWindow::onChemicalButtonClicked);
@@ -121,7 +147,7 @@ void MainWindow::updateWorld(float32 timeStep, int32 velocityIterations, int32 p
     }
 }
 
-void MainWindow::addBody(QString imgPath)
+void MainWindow::addBody(QString imgPath, float32 scale)
 {
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
@@ -130,7 +156,7 @@ void MainWindow::addBody(QString imgPath)
 
     // Define another box shape for our dynamic body.
     b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(0.33f, 0.33f);
+    dynamicBox.SetAsBox((0.35f * scale), (0.35f * scale));
 
     // Define the dynamic body fixture.
     b2FixtureDef fixtureDef;
@@ -152,16 +178,14 @@ void MainWindow::addBody(QString imgPath)
     QImage *image = new QImage();
     image->load(
           imgPath);
-    newLabel->setPixmap(QPixmap::fromImage(image->scaled(75, 75, Qt::KeepAspectRatio)));
+    newLabel->setPixmap(QPixmap::fromImage(image->scaled((75 * (scale)), (75 * (scale)), Qt::KeepAspectRatio)));
     newLabel->show();
-    newLabel->setFixedHeight(75);
-    newLabel->setFixedWidth(75);
+    newLabel->setFixedHeight((int32)(75 * (scale)));
+    newLabel->setFixedWidth((int32)(75 * (scale)));
 
     bodyDisplays.push_back(newLabel);
     bodies.push_back(body);
 }
-
-
 
 MainWindow::~MainWindow()
 {
@@ -274,6 +298,11 @@ void MainWindow::onClearButtonClicked()
 {
     //TODO
     emit clearScene();
+    resetLevelData();
+}
+
+void MainWindow::resetLevelData()
+{
     resetLevelData(currentLevel);
 }
 
@@ -353,19 +382,28 @@ void MainWindow::onLevelButtonClicked()
 
 }
 
-
 void MainWindow::onChemicalButtonClicked()
 {
     // Test run
-    emit createElement(element::O);
-    emit createElement(element::H);
-    emit createElement(element::O);
+//    emit createElement(element::O);
+//    emit createElement(element::H);
+//    emit createElement(element::O);
 }
 
 void MainWindow::onSuccessfulCombination(molecule newMolecule){
     // Test run
     // clear elements on screen, instantiate molecule physics object, unlock next level(?)
     qDebug() << "Made water!";
+    qDebug() << &newMolecule;
+    QTimer::singleShot(1000, this, [this] () {
+        for(auto body : bodies)
+        {
+        body->ApplyAngularImpulse(400.0f, true);
+        }
+    });
+    QTimer::singleShot(3500, this, SLOT(resetLevelData()));
+    QTimer::singleShot(3510, this, [this] () {addBody(":/UI/UI/water.png", 1.66); });
+    emit clearScene();
 }
 
 

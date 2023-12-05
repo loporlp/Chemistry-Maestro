@@ -50,6 +50,8 @@ private slots:
      *        pass in the current currentLevel value.
      */
     void resetLevelData(int32 newLevelValue);
+    void resetLevelData();
+    void addBody(QString imgPath, float32 scale);
 
     void updateWorld(float32 timeStep, int32 velocityIterations, int32 positionIterations);
 
@@ -68,7 +70,6 @@ private:
     void setupGameScreen();
 
     void setupModel(model& model);
-    void addBody(QString imgPath);
 
 };
 #endif // MAINWINDOW_H

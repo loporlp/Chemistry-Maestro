@@ -17,7 +17,7 @@ void model::populateRecipes(){
     // Level 1
     std::vector<element> water;
     water.push_back(element::H);
-    water.push_back(element::O);
+    water.push_back(element::H);
     water.push_back(element::O);
     levelRecipes.push_back(water);
     // Level 2
