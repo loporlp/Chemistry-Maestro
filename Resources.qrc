@@ -26,5 +26,6 @@
         <file>UI/sodium.png</file>
         <file>UI/zinc.png</file>
         <file>UI/water.png</file>
+        <file>UI/DavidJohnsTin.png</file>
     </qresource>
 </RCC>

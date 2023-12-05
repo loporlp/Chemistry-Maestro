@@ -120,7 +120,7 @@ MainWindow::MainWindow(model& model, QWidget *parent)
     connect(ui->silverButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/silver.png", 1.0);
         emit createElement(element::Ag);
     });
-    connect(ui->tinButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/david.png", 1.0);
+    connect(ui->tinButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/DavidJohnsTin.png", 1.0);
         emit createElement(element::Sn);
     });
 
