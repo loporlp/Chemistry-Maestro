@@ -52,6 +52,7 @@ private slots:
     void resetLevelData(int32 newLevelValue);
     void resetLevelData();
     void addBody(QString imgPath, float32 scale);
+    void addChemical(QString imgPath);
 
     void updateWorld(float32 timeStep, int32 velocityIterations, int32 positionIterations);
 

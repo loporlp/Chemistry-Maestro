@@ -30,7 +30,7 @@ MainWindow::MainWindow(model& model, QWidget *parent)
     b2BodyDef groundBodyDef;
     b2BodyDef leftWallDef;
     b2BodyDef rightWallDef;
-    groundBodyDef.position.Set(0.0f, -15.0f);
+    groundBodyDef.position.Set(0.0f, -15.03f);
     leftWallDef.position.Set(-.35f, -10.0f);
     rightWallDef.position.Set(3.7f, -10.0f);
 
@@ -156,7 +156,7 @@ void MainWindow::addBody(QString imgPath, float32 scale)
 
     // Define another box shape for our dynamic body.
     b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox((0.35f * scale), (0.35f * scale));
+    dynamicBox.SetAsBox((0.33f * scale), (0.33f * scale));
 
     // Define the dynamic body fixture.
     b2FixtureDef fixtureDef;
@@ -168,10 +168,14 @@ void MainWindow::addBody(QString imgPath, float32 scale)
     // Override the default friction.
     fixtureDef.friction = 0.3f;
 
-    fixtureDef.restitution = 0.8f;
+    fixtureDef.restitution = 0.7f;
 
     // Add the shape to the body.
     body->CreateFixture(&fixtureDef);
+
+    if(scale > 1) {
+        scale *= 0.8;
+    }
 
     //bodies->push_back(body);
     QLabel *newLabel = new QLabel(this);
@@ -387,9 +391,6 @@ void MainWindow::onLevelButtonClicked()
 void MainWindow::onChemicalButtonClicked()
 {
     // Test run
-//    emit createElement(element::O);
-//    emit createElement(element::H);
-//    emit createElement(element::O);
 }
 
 void MainWindow::setLableVisible(bool visible){
@@ -399,19 +400,40 @@ void MainWindow::setLableVisible(bool visible){
         }
 }
 
+void MainWindow::addChemical(QString imgPath)
+{
+    QTimer::singleShot(1000, this, [this] () {
+        for(auto body : bodies)
+        {
+            body->ApplyAngularImpulse(400.0f, true);
+        }
+    });
+    QTimer::singleShot(3500, this, SLOT(resetLevelData()));
+    QTimer::singleShot(3510, this, [this, imgPath] () {addBody(imgPath, 1.75); });
+}
+
+
 void MainWindow::onSuccessfulCombination(molecule newMolecule){
     // Test run
     // clear elements on screen, instantiate molecule physics object, unlock next level(?)
     qDebug() << "Made water!";
     qDebug() << &newMolecule;
-    QTimer::singleShot(1000, this, [this] () {
-        for(auto body : bodies)
-        {
-        body->ApplyAngularImpulse(400.0f, true);
-        }
-    });
-    QTimer::singleShot(3500, this, SLOT(resetLevelData()));
-    QTimer::singleShot(3510, this, [this] () {addBody(":/UI/UI/water.png", 1.66); });
+    switch(currentLevel)
+    {
+    case 1:
+        addChemical(":/UI/UI/water.png");
+        break;
+    case 2:
+        addChemical(":/UI/UI/water.png");
+        break;
+    case 3:
+        addChemical(":/UI/UI/water.png");
+        break;
+    case 4:
+        addChemical(":/UI/UI/water.png");
+        break;
+    }
+
     emit clearScene();
 }
 
