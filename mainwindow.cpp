@@ -265,6 +265,7 @@ void MainWindow::restartGame()
 void MainWindow::showStatsPopup()
 {
     ui->popupModal->setVisible(true);
+    setLableVisible(false);
 
     // Connect the closeButton's clicked signal to a slot
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
