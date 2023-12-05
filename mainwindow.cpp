@@ -16,7 +16,7 @@ MainWindow::MainWindow(model& model, QWidget *parent)
     world(b2Vec2(0.0f, -10.0f))
 {
     ui->setupUi(this);
-
+    qApp->setWindowIcon(QIcon(":/UI/UI/oxygen.png"));
     // temporary magic number - change later.
     currentLevel = 1;
 
