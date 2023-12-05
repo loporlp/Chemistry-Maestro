@@ -68,7 +68,7 @@ MainWindow::MainWindow(model& model, QWidget *parent)
 
     QImage *image = new QImage();
     image->load(
-          ":/UI/UI/david.png");
+        ":/UI/UI/david.png");
 
     connect(timer,
             &QTimer::timeout,
@@ -181,7 +181,7 @@ void MainWindow::addBody(QString imgPath, float32 scale)
     QLabel *newLabel = new QLabel(this);
     QImage *image = new QImage();
     image->load(
-          imgPath);
+        imgPath);
     newLabel->setPixmap(QPixmap::fromImage(image->scaled((75 * (scale)), (75 * (scale)), Qt::KeepAspectRatio)));
     newLabel->show();
     newLabel->setFixedHeight((int32)(75 * (scale)));
@@ -395,10 +395,10 @@ void MainWindow::onChemicalButtonClicked()
 }
 
 void MainWindow::setLableVisible(bool visible){
-        for(auto label : bodyDisplays)
-        {
-            label->setVisible(visible);
-        }
+    for(auto label : bodyDisplays)
+    {
+        label->setVisible(visible);
+    }
 }
 
 void MainWindow::addChemical(QString imgPath)
