@@ -68,6 +68,8 @@ private:
     std::vector<b2Body *> bodies;
 
     int32 currentLevel;
+    int32 completedLevels;
+
     bool bodiesLocked;
 
     void setupStartScreen();

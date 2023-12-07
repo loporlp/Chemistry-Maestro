@@ -3,7 +3,6 @@
         <file>UI/Play Button.png</file>
         <file>UI/Right Side Bar.png</file>
         <file>UI/StartScreenBackground.png</file>
-        <file>UI/GameScreenBackground.png</file>
         <file>UI/popupModal.png</file>
         <file>UI/Level Popup.png</file>
         <file>UI/Game Screen-LEVEL2.png</file>
@@ -40,5 +39,15 @@
         <file>UI/Level 4 Instructions.png</file>
         <file>UI/lockIcon.png</file>
         <file>UI/Level 1 Score Popup.png</file>
+        <file>UI/Pottasium Nitrate Molecule.png</file>
+        <file>UI/Stannous Chloride Molecule.png</file>
+        <file>UI/Sulfuric Acid Molecule.png</file>
+        <file>UI/Water Molecule.png</file>
+        <file>UI/Game Screen-LEVEL1.png</file>
+        <file>UI/Stats Popup0.png</file>
+        <file>UI/Stats Popup1.png</file>
+        <file>UI/Stats Popup2.png</file>
+        <file>UI/Stats Popup3.png</file>
+        <file>UI/Stats Popup4.png</file>
     </qresource>
 </RCC>

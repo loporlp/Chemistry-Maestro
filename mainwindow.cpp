@@ -19,6 +19,7 @@ MainWindow::MainWindow(model& model, QWidget *parent)
     qApp->setWindowIcon(QIcon(":/UI/UI/oxygen.png"));
 
     currentLevel = 1;
+    completedLevels = 0;
     bodiesLocked = false;
 
     // Set up the start screen and game screen
@@ -106,10 +107,10 @@ MainWindow::MainWindow(model& model, QWidget *parent)
     connect(ui->calciumButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/calcium.png", 1.0);
         emit createElement(element::Ca);
     });
-    connect(ui->ironButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/chlorine.png", 1.0);
+    connect(ui->chlorineButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/chlorine.png", 1.0);
         emit createElement(element::Cl);
     });
-    connect(ui->nickelButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/sulfur.png", 1.0);
+    connect(ui->sulfurButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/sulfur.png", 1.0);
         emit createElement(element::S);
     });
     connect(ui->copperButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/copper.png", 1.0);
@@ -126,7 +127,7 @@ MainWindow::MainWindow(model& model, QWidget *parent)
     });
 
     // Test run
-    connect(ui->ironButton, &QPushButton::clicked, this, &MainWindow::onChemicalButtonClicked);
+    connect(ui->chlorineButton, &QPushButton::clicked, this, &MainWindow::onChemicalButtonClicked);
 
     timer->start(10);
     qDebug() << this->size().height() << "height";
@@ -227,18 +228,6 @@ void MainWindow::setupGameScreen()
     connect(ui->level2Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
     connect(ui->level3Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
     connect(ui->level4Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
-
-//    ui->level2Button->setDisabled(true);
-//    ui->level3Button->setDisabled(true);
-//    ui->level4Button->setDisabled(true);
-
-//    ui->level2Button->setIcon(QIcon(":/UI/UI/lockIcon.png"));
-//    ui->level3Button->setIcon(QIcon(":/UI/UI/lockIcon.png"));
-//    ui->level4Button->setIcon(QIcon(":/UI/UI/lockIcon.png"));
-
-    // Connect slots for the Chemical buttons
-
-    //    ui->popupModal->setVisible(false);
 }
 
 void MainWindow::setupModel(model& model){
@@ -255,7 +244,15 @@ void MainWindow::showGameScreen()
     ui->stackedWidget->setCurrentIndex(1);
 
     showLevelInstructionsPopup(1);
-    ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/GameScreenBackground.png);");
+    ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL1.png);");
+
+        ui->level2Button->setDisabled(true);
+        ui->level3Button->setDisabled(true);
+        ui->level4Button->setDisabled(true);
+
+        ui->level2Lock->setVisible(true);
+        ui->level3Lock->setVisible(true);
+        ui->level4Lock->setVisible(true);
 
     // model signals.
     emit clearScene();
@@ -271,6 +268,15 @@ void MainWindow::restartGame()
     // Clear the display labels in each level tab
     //    resetLevelData(currentLevel);
     resetLevelData(1);
+    completedLevels = 0;
+
+    ui->level2Button->setDisabled(true);
+    ui->level3Button->setDisabled(true);
+    ui->level4Button->setDisabled(true);
+
+    ui->level2Lock->setVisible(true);
+    ui->level3Lock->setVisible(true);
+    ui->level4Lock->setVisible(true);
 
     // Switch to the start screen
     ui->stackedWidget->setCurrentIndex(0);
@@ -283,8 +289,24 @@ void MainWindow::showStatsPopup()
     ui->popupModal->setVisible(true);
     setLabelVisible(false);
 
-    //ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Level 1 Score Popup.png);");
-
+    switch(completedLevels)
+    {
+    case 0:
+        ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Stats Popup0.png);");
+        break;
+    case 1:
+        ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Stats Popup1.png);");
+        break;
+    case 2:
+        ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Stats Popup2.png);");
+        break;
+    case 3:
+        ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Stats Popup3.png);");
+        break;
+    case 4:
+        ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Stats Popup4.png);");
+        break;
+    }
     // Connect the closeButton's clicked signal to a slot
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
 }
@@ -381,8 +403,7 @@ void MainWindow::onLevelButtonClicked()
     if (clickedButton == ui->level1Button && currentLevel != 1)
     {
         // Set the background image for level 1
-        ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/GameScreenBackground.png);");
-        //ui->LevelInstructionModal->setStyleSheet("background-image: url(:/UI/UI/Level 1 Instructions.png);");
+        ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL1.png);");
         showLevelInstructionsPopup(1);
 
         // remove the chemicals added to the world, change the current level value
@@ -394,7 +415,6 @@ void MainWindow::onLevelButtonClicked()
     {
         // Set the background image for level 2
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL2.png);");
-        //ui->LevelInstructionModal->setStyleSheet("background-image: url(:/UI/UI/Level 2 Instructions.png);");
         showLevelInstructionsPopup(2);
 
         // remove the chemicals added to the world, change the current level value
@@ -406,7 +426,6 @@ void MainWindow::onLevelButtonClicked()
     {
         // Set the background image for level 3
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL3.png);");
-        //ui->LevelInstructionModal->setStyleSheet("background-image: url(:/UI/UI/Level 3 Instructions.png);");
         showLevelInstructionsPopup(3);
 
         // remove the chemicals added to the world, change the current level value
@@ -418,7 +437,6 @@ void MainWindow::onLevelButtonClicked()
     {
         // Set the background image for level 4
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL4.png);");
-        //ui->LevelInstructionModal->setStyleSheet("background-image: url(:/UI/UI/Level 4 Instructions.png);");
         showLevelInstructionsPopup(4);
 
         // remove the chemicals added to the world, change the current level value
@@ -433,6 +451,10 @@ void MainWindow::onLevelButtonClicked()
 
 void MainWindow::showLevelInstructionsPopup(int selectedLevel)
 {
+    // Make the modal visible and hide other elements
+    ui->LevelInstructionModal->setVisible(true);
+    ui->howToPlayButton->setDisabled(true);
+    setLabelVisible(false);
 
     // Set the background image based on the current level
     switch(selectedLevel)
@@ -454,11 +476,6 @@ void MainWindow::showLevelInstructionsPopup(int selectedLevel)
         break;
     }
 
-    // Make the modal visible and hide other elements
-    ui->LevelInstructionModal->setVisible(true);
-    ui->howToPlayButton->setDisabled(true);
-    //setLabelVisible(false);
-
     // Connect the closeButton's clicked signal to a slot
     connect(ui->closeLevelInstructionButton, &QPushButton::clicked, this, &MainWindow::onCloseLevelInstructionButtonClicked);
 }
@@ -467,11 +484,14 @@ void MainWindow::showLevelInstructionsPopup(int selectedLevel)
 void MainWindow::onCloseLevelInstructionButtonClicked()
 {
     // Close the modal when the close button is clicked
-    ui->LevelInstructionModal->setVisible(false);
-    ui->howToPlayButton->setDisabled(false);
+//    ui->LevelInstructionModal->setVisible(false);
+//    ui->howToPlayButton->setDisabled(false);
 
-    // Optionally, show other elements again if needed
-    //setLabelVisible(true);
+    setLabelVisible(true);
+    if (ui->LevelInstructionModal->isVisible()) {
+        ui->LevelInstructionModal->setVisible(false);
+        ui->howToPlayButton->setDisabled(false);
+    }
 }
 
 
@@ -513,32 +533,31 @@ void MainWindow::onSuccessfulCombination(molecule newMolecule){
     switch(currentLevel)
     {
     case 1:
-        addChemical(":/UI/UI/water.png");
-        //unlock level 2 TODO
-        //ui->level2Button->setDisabled(false);
-        //ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Level 1 Score Popup.png);");
-        //showStatsPopup();
-
+        addChemical(":/UI/UI/Water Molecule.png");
+        completedLevels = 1;
+        ui->level2Button->setDisabled(false);
+        ui->level2Lock->setVisible(false);
         break;
     case 2:
-        addChemical(":/UI/UI/water.png");
-        //unlock level 3 TODO
-        //ui->level3Button->setDisabled(false);
-
+        addChemical(":/UI/UI/Stannous Chloride Molecule.png");
+        completedLevels = 2;
+        ui->level3Button->setDisabled(false);
+        ui->level3Lock->setVisible(false);
         break;
     case 3:
-        addChemical(":/UI/UI/water.png");
-        //unlock level 4 TODO
-        //ui->level4Button->setDisabled(false);
-
+        addChemical(":/UI/UI/Pottasium Nitrate Molecule.png");
+        completedLevels = 3;
+        ui->level4Button->setDisabled(false);
+        ui->level4Lock->setVisible(false);
         break;
     case 4:
-        addChemical(":/UI/UI/water.png");
-        //Display game over/final stats screen TODO
+        addChemical(":/UI/UI/Sulfuric Acid Molecule.png");
+        completedLevels = 4;
         break;
     }
 
     emit clearScene();
+
 }
 
 
