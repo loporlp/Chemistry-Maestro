@@ -21,13 +21,29 @@ void model::populateRecipes(){
     water.push_back(element::O);
     levelRecipes.push_back(water);
     // Level 2
-
+    std::vector<element> stannousChloride;
+    stannousChloride.push_back(element::Cl);
+    stannousChloride.push_back(element::Cl);
+    stannousChloride.push_back(element::Sn);
+    levelRecipes.push_back(stannousChloride);
     // Level 3
-
+    std::vector<element> saltpetre;
+    saltpetre.push_back(element::O);
+    saltpetre.push_back(element::O);
+    saltpetre.push_back(element::O);
+    saltpetre.push_back(element::N);
+    saltpetre.push_back(element::K);
+    levelRecipes.push_back(saltpetre);
     // Level 4
-
-    // Level 5
-
+    std::vector<element> sulfiricAcid;
+    sulfiricAcid.push_back(element::H);
+    sulfiricAcid.push_back(element::H);
+    sulfiricAcid.push_back(element::O);
+    sulfiricAcid.push_back(element::O);
+    sulfiricAcid.push_back(element::O);
+    sulfiricAcid.push_back(element::O);
+    sulfiricAcid.push_back(element::S);
+    levelRecipes.push_back(sulfiricAcid);
     // ....
 }
 
@@ -35,13 +51,11 @@ void model::populateProducts(){
     // Level 1
     levelProducts.push_back(molecule::Water);
     // Level 2
-
+    levelProducts.push_back(molecule::StannousChloride);
     // Level 3
-
+    levelProducts.push_back(molecule::Saltpetre);
     // Level 4
-
-    // Level 5
-
+    levelProducts.push_back(molecule::SulfuricAcid);
     // ....
 }
 

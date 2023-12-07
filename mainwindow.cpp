@@ -507,7 +507,6 @@ void MainWindow::addChemical(QString imgPath)
 void MainWindow::onSuccessfulCombination(molecule newMolecule){
     // Test run
     // clear elements on screen, instantiate molecule physics object, unlock next level(?)
-    qDebug() << "Made water!";
     qDebug() << &newMolecule;
 
 
