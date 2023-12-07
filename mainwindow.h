@@ -35,10 +35,12 @@ private slots:
     void showHowToPlayPopup();
 
     void onCloseButtonClicked();
+    void onCloseLevelInstructionButtonClicked();
 
     void onClearButtonClicked();
 
     void onLevelButtonClicked();
+    void showLevelInstructionsPopup(int selectedLevel);
     void onChemicalButtonClicked();
 
     void onSuccessfulCombination(molecule newMolecule);
@@ -73,7 +75,7 @@ private:
 
     void setupModel(model& model);
 
-    void setLableVisible(bool visible);
+    void setLabelVisible(bool visible);
 
 };
 #endif // MAINWINDOW_H

@@ -29,5 +29,16 @@
         <file>UI/DavidJohnsTin.png</file>
         <file>UI/chlorine.png</file>
         <file>UI/sulfur.png</file>
+        <file>UI/How to Play Popup.png</file>
+        <file>UI/Level 1 Hint.png</file>
+        <file>UI/Level 1 Instructions.png</file>
+        <file>UI/Level 2 Hint.png</file>
+        <file>UI/Level 2 Instructions.png</file>
+        <file>UI/Level 3 Hint.png</file>
+        <file>UI/Level 3 Instructions.png</file>
+        <file>UI/Level 4 Hint.png</file>
+        <file>UI/Level 4 Instructions.png</file>
+        <file>UI/lockIcon.png</file>
+        <file>UI/Level 1 Score Popup.png</file>
     </qresource>
 </RCC>
