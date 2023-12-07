@@ -107,10 +107,10 @@ MainWindow::MainWindow(model& model, QWidget *parent)
         emit createElement(element::Ca);
     });
     connect(ui->ironButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/iron.png", 1.0);
-        emit createElement(element::Fe);
+        emit createElement(element::Cl);
     });
     connect(ui->nickelButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/nickel.png", 1.0);
-        emit createElement(element::Ni);
+        emit createElement(element::S);
     });
     connect(ui->copperButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/copper.png", 1.0);
         emit createElement(element::Cu);
