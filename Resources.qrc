@@ -27,5 +27,7 @@
         <file>UI/zinc.png</file>
         <file>UI/water.png</file>
         <file>UI/DavidJohnsTin.png</file>
+        <file>UI/chlorine.png</file>
+        <file>UI/sulfur.png</file>
     </qresource>
 </RCC>
