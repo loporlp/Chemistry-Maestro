@@ -1,12 +1,38 @@
+/*
+ * Assignment 9: Chemistry Maestro
+ * Class Author(s): Andrew Wilhelm, Allison Walker,
+ * Mason Sansom, AJ Kennedy, Brett Baxter
+ * Course: CS 3505
+ * Fall 2023
+ *
+ * mainwindow header
+ *
+ * Brief:
+ * All view / UI logic.
+ *
+*/
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+// Header Includes
+#include "model.h"
+#include "ui_mainwindow.h"
+
+// Q Includes
 #include <QMainWindow>
 #include <QStackedWidget>
-#include "model.h"
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QDialog>
+#include <QGroupBox>
+#include <QTimer>
+#include <QDebug>
+
+// Other Includes
 #include <Box2D/Box2D.h>
 #include <stdio.h>
-#include <QLabel>
+#include <vector>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,11 +46,26 @@ public:
     MainWindow(model& model, QWidget *parent = nullptr);
     ~MainWindow();
 
-signals:
-    void positionChanged(int ax, int ay);
-    void createElement(element newElement);
-    void clearScene();
-    void updateLevel(int index);
+private:
+    Ui::MainWindow *ui;
+
+    // Box2D Variables
+    b2Body *body;
+    b2World world;
+    std::vector<QLabel *> bodyDisplays;
+    std::vector<b2Body *> bodies;
+    bool bodiesLocked;
+
+    // Level Tracking
+    int32 currentLevel;
+    int32 completedLevels;
+
+    // View Setup Methods
+    void setupStartScreen();
+    void setupGameScreen();
+    void setLabelVisible(bool visible);
+    // Model Setup Methods
+    void setupModel(model& model);
 
 private slots:
     void showGameScreen();
@@ -41,43 +82,21 @@ private slots:
 
     void onLevelButtonClicked();
     void showLevelInstructionsPopup(int selectedLevel);
-    void onChemicalButtonClicked();
 
-    void onSuccessfulCombination(molecule newMolecule);
+    void onSuccessfulCombination();
 
-    /**
-     * @brief resetLevelData - Removes all non ground/wall bodies in the world, defaults all other level data, and
-     *        sets the current level value to that of the variable.
-     * @param newLevelValue - the new level to be set. If level is not intended to change,
-     *        pass in the current currentLevel value.
-     */
     void resetLevelData(int32 newLevelValue);
     void resetLevelData();
     void addBody(QString imgPath, float32 scale);
-    void addChemical(QString imgPath);
+    void addMolecule(QString imgPath);
 
     void updateWorld(float32 timeStep, int32 velocityIterations, int32 positionIterations);
 
-private:
-    Ui::MainWindow *ui;
-
-    b2Body *body;
-    b2World world;
-
-    std::vector<QLabel *> bodyDisplays;
-    std::vector<b2Body *> bodies;
-
-    int32 currentLevel;
-    int32 completedLevels;
-
-    bool bodiesLocked;
-
-    void setupStartScreen();
-    void setupGameScreen();
-
-    void setupModel(model& model);
-
-    void setLabelVisible(bool visible);
+signals:
+    void positionChanged(int ax, int ay);
+    void createElement(element newElement);
+    void clearScene();
+    void updateLevel(int index);
 
 };
 #endif // MAINWINDOW_H

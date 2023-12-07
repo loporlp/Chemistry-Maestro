@@ -1,15 +1,24 @@
+/*
+ * Assignment 9: Chemistry Maestro
+ * Class Author(s): Andrew Wilhelm, Allison Walker,
+ * Mason Sansom, AJ Kennedy, Brett Baxter
+ * Course: CS 3505
+ * Fall 2023
+ *
+ * mainwindow source
+ *
+ * Brief:
+ * All view / UI logic.
+ *
+*/
+
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 
-#include <QVBoxLayout>
-#include <QDialog>
-#include <QLabel>
-#include <QGroupBox>
-#include <QTimer>
-#include <QDebug>
-#include <vector>
-
-
+/**
+ * @brief MainWindow::MainWindow - Constructor
+ * @param model - model reference for setup
+ * @param parent
+ */
 MainWindow::MainWindow(model& model, QWidget *parent)
     : QMainWindow(parent),
     ui(new Ui::MainWindow),
@@ -25,9 +34,10 @@ MainWindow::MainWindow(model& model, QWidget *parent)
     // Set up the start screen and game screen
     setupStartScreen();
     setupGameScreen();
-
+    // Set up the model
     setupModel(model);
 
+    // Box2D Setup
     // define ground / wall bodies
     b2BodyDef groundBodyDef;
     b2BodyDef leftWallDef;
@@ -79,7 +89,7 @@ MainWindow::MainWindow(model& model, QWidget *parent)
                 updateWorld(timeStep, velocityIterations, positionIterations);
             });
 
-    //connect(this, &MainWindow::positionChanged, ui->frame, );
+    // Setup element buttons
     connect(ui->hydrogenButton, &QPushButton::clicked, this, [this]{ addBody(":/UI/UI/hydrogen.png", 1.0);
         emit createElement(element::H);
     });
@@ -126,29 +136,36 @@ MainWindow::MainWindow(model& model, QWidget *parent)
         emit createElement(element::Sn);
     });
 
-    // Test run
-    connect(ui->chlorineButton, &QPushButton::clicked, this, &MainWindow::onChemicalButtonClicked);
-
     timer->start(10);
     qDebug() << this->size().height() << "height";
     qDebug() << this->size().width() << "width";
 }
 
+/**
+ * @brief MainWindow::updateWorld - Instructs the world to perform a single step of simulation.
+ * @param timeStep
+ * @param velocityIterations
+ * @param positionIterations
+ */
 void MainWindow::updateWorld(float32 timeStep, int32 velocityIterations, int32 positionIterations)
 {
-    // Instruct the world to perform a single step of simulation.
     // It is generally best to keep the time step and iterations fixed.
     world.Step(timeStep, velocityIterations, positionIterations);
 
     int i = 0;
-    for (auto body : bodies) {
+    for (auto body : bodies)
+    {
         auto position = body->GetPosition();
         bodyDisplays.at(i)->move((position.x + 2) * 100, (-1 * (position.y - 1) * 100) - 126);
-        //bodies = bodies->GetNext();
         i++;
     }
 }
 
+/**
+ * @brief MainWindow::addBody - Adds a physics body to the world.
+ * @param imgPath - The image that the body will have.
+ * @param scale - size
+ */
 void MainWindow::addBody(QString imgPath, float32 scale)
 {
     if(bodiesLocked) { return; }
@@ -177,7 +194,8 @@ void MainWindow::addBody(QString imgPath, float32 scale)
     // Add the shape to the body.
     body->CreateFixture(&fixtureDef);
 
-    if(scale > 1) {
+    if(scale > 1)
+    {
         scale *= 0.8;
     }
 
@@ -195,19 +213,25 @@ void MainWindow::addBody(QString imgPath, float32 scale)
     bodies.push_back(body);
 }
 
+/**
+ * @brief MainWindow::~MainWindow - Destructor
+ */
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-
+/**
+ * @brief MainWindow::setupStartScreen - Set up start button connection.
+ */
 void MainWindow::setupStartScreen()
 {
-    // Set up start button connection
     connect(ui->startButton, &QPushButton::clicked, this, &MainWindow::showGameScreen);
 }
 
-
+/**
+ * @brief MainWindow::setupGameScreen - Set up restart, stats, hints, how to play, clear, and level buttons.
+ */
 void MainWindow::setupGameScreen()
 {
     ui->popupModal->setVisible(false);
@@ -230,6 +254,10 @@ void MainWindow::setupGameScreen()
     connect(ui->level4Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
 }
 
+/**
+ * @brief MainWindow::setupModel - Set up connections to the model.
+ * @param model
+ */
 void MainWindow::setupModel(model& model){
     connect(this, &MainWindow::createElement, &model, &model::onCreateElement);
     connect(this, &MainWindow::clearScene, &model, &model::onClearScene);
@@ -237,7 +265,9 @@ void MainWindow::setupModel(model& model){
     connect(&model, &model::successfulCombination, this, &MainWindow::onSuccessfulCombination);
 }
 
-
+/**
+ * @brief MainWindow::showGameScreen - Displays the game screen.
+ */
 void MainWindow::showGameScreen()
 {
     // Switch to the game screen
@@ -246,27 +276,26 @@ void MainWindow::showGameScreen()
     showLevelInstructionsPopup(1);
     ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL1.png);");
 
-        ui->level2Button->setDisabled(true);
-        ui->level3Button->setDisabled(true);
-        ui->level4Button->setDisabled(true);
+    ui->level2Button->setDisabled(true);
+    ui->level3Button->setDisabled(true);
+    ui->level4Button->setDisabled(true);
 
-        ui->level2Lock->setVisible(true);
-        ui->level3Lock->setVisible(true);
-        ui->level4Lock->setVisible(true);
+    ui->level2Lock->setVisible(true);
+    ui->level3Lock->setVisible(true);
+    ui->level4Lock->setVisible(true);
 
     // model signals.
     emit clearScene();
     emit updateLevel(0);
-    // Set start to level 1
-    //ui->leftNavBar->setCurrentIndex(0);
 }
 
 
-// Reset game slot
+/**
+ * @brief MainWindow::restartGame - Clears labels, resets completed levels, locks levels.
+ */
 void MainWindow::restartGame()
 {
     // Clear the display labels in each level tab
-    //    resetLevelData(currentLevel);
     resetLevelData(1);
     completedLevels = 0;
 
@@ -283,7 +312,9 @@ void MainWindow::restartGame()
     emit clearScene();
 }
 
-
+/**
+ * @brief MainWindow::showStatsPopup - Displays the stats popup.
+ */
 void MainWindow::showStatsPopup()
 {
     ui->popupModal->setVisible(true);
@@ -311,7 +342,9 @@ void MainWindow::showStatsPopup()
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
 }
 
-
+/**
+ * @brief MainWindow::showHintsPopup - Displays the hints popup.
+ */
 void MainWindow::showHintsPopup()
 {
     ui->popupModal->setVisible(true);
@@ -337,7 +370,9 @@ void MainWindow::showHintsPopup()
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
 }
 
-
+/**
+ * @brief MainWindow::showHowToPlayPopup - Displays the how to play popup.
+ */
 void MainWindow::showHowToPlayPopup()
 {
     ui->popupModal->setVisible(true);
@@ -349,8 +384,9 @@ void MainWindow::showHowToPlayPopup()
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
 }
 
-
-// Function to handle the closeButton click
+/**
+ * @brief MainWindow::onCloseButtonClicked - Handles the closeButton click.
+ */
 void MainWindow::onCloseButtonClicked() {
     setLabelVisible(true);
     if (ui->popupModal->isVisible()) {
@@ -358,28 +394,41 @@ void MainWindow::onCloseButtonClicked() {
     }
 }
 
-
+/**
+ * @brief MainWindow::onClearButtonClicked - Clears the scene both in the view and in the model.
+ */
 void MainWindow::onClearButtonClicked()
 {
     emit clearScene();
     resetLevelData();
 }
 
+/**
+ * @brief MainWindow::resetLevelData - Resets the data for the current level.
+ */
 void MainWindow::resetLevelData()
 {
     resetLevelData(currentLevel);
 }
 
+/**
+ * @brief resetLevelData - Removes all non ground/wall bodies in the world, defaults all other level data, and
+ *        sets the current level value to that of the variable.
+ * @param newLevelValue - the new level to be set. If level is not intended to change,
+ *        pass in the current currentLevel value.
+ */
 void MainWindow::resetLevelData(int32 newLevelValue)
 {
     bodiesLocked = false;
     currentLevel = newLevelValue;
 
-    for(b2Body *body : bodies) {
+    for(b2Body *body : bodies)
+    {
         world.DestroyBody(body);
     }
 
-    for(auto label : bodyDisplays) {
+    for(auto label : bodyDisplays)
+    {
         delete label;
     }
 
@@ -387,7 +436,9 @@ void MainWindow::resetLevelData(int32 newLevelValue)
     bodyDisplays.clear();
 }
 
-
+/**
+ * @brief MainWindow::onLevelButtonClicked - Handles level changes.
+ */
 void MainWindow::onLevelButtonClicked()
 {
     // Check which level button was clicked
@@ -449,6 +500,10 @@ void MainWindow::onLevelButtonClicked()
 
 }
 
+/**
+ * @brief MainWindow::showLevelInstructionsPopup - Displays the level instructions popup.
+ * @param selectedLevel
+ */
 void MainWindow::showLevelInstructionsPopup(int selectedLevel)
 {
     // Make the modal visible and hide other elements
@@ -480,26 +535,23 @@ void MainWindow::showLevelInstructionsPopup(int selectedLevel)
     connect(ui->closeLevelInstructionButton, &QPushButton::clicked, this, &MainWindow::onCloseLevelInstructionButtonClicked);
 }
 
-
+/**
+ * @brief MainWindow::onCloseLevelInstructionButtonClicked - Closes the level instructions popup.
+ */
 void MainWindow::onCloseLevelInstructionButtonClicked()
 {
-    // Close the modal when the close button is clicked
-//    ui->LevelInstructionModal->setVisible(false);
-//    ui->howToPlayButton->setDisabled(false);
-
     setLabelVisible(true);
-    if (ui->LevelInstructionModal->isVisible()) {
+    if (ui->LevelInstructionModal->isVisible())
+    {
         ui->LevelInstructionModal->setVisible(false);
         ui->howToPlayButton->setDisabled(false);
     }
 }
 
-
-void MainWindow::onChemicalButtonClicked()
-{
-    // Test run
-}
-
+/**
+ * @brief MainWindow::setLabelVisible
+ * @param visible
+ */
 void MainWindow::setLabelVisible(bool visible){
     for(auto label : bodyDisplays)
     {
@@ -507,7 +559,11 @@ void MainWindow::setLabelVisible(bool visible){
     }
 }
 
-void MainWindow::addChemical(QString imgPath)
+/**
+ * @brief MainWindow::addChemical - Adds a product molecule body to the world.
+ * @param imgPath
+ */
+void MainWindow::addMolecule(QString imgPath)
 {
     QTimer::singleShot(1000, this, [this] () {
         for(auto body : bodies)
@@ -523,41 +579,37 @@ void MainWindow::addChemical(QString imgPath)
 
 }
 
-
-void MainWindow::onSuccessfulCombination(molecule newMolecule){
-    // Test run
-    // clear elements on screen, instantiate molecule physics object, unlock next level(?)
-    qDebug() << &newMolecule;
-
-
+/**
+ * @brief MainWindow::onSuccessfulCombination - Slot receives signal from the model that the molecule has been made.
+ */
+void MainWindow::onSuccessfulCombination(){
     switch(currentLevel)
     {
     case 1:
-        addChemical(":/UI/UI/Water Molecule.png");
+        addMolecule(":/UI/UI/Water Molecule.png");
         completedLevels = 1;
         ui->level2Button->setDisabled(false);
         ui->level2Lock->setVisible(false);
         break;
     case 2:
-        addChemical(":/UI/UI/Stannous Chloride Molecule.png");
+        addMolecule(":/UI/UI/Stannous Chloride Molecule.png");
         completedLevels = 2;
         ui->level3Button->setDisabled(false);
         ui->level3Lock->setVisible(false);
         break;
     case 3:
-        addChemical(":/UI/UI/Pottasium Nitrate Molecule.png");
+        addMolecule(":/UI/UI/Pottasium Nitrate Molecule.png");
         completedLevels = 3;
         ui->level4Button->setDisabled(false);
         ui->level4Lock->setVisible(false);
         break;
     case 4:
-        addChemical(":/UI/UI/Sulfuric Acid Molecule.png");
+        addMolecule(":/UI/UI/Sulfuric Acid Molecule.png");
         completedLevels = 4;
         break;
     }
 
     emit clearScene();
-
 }
 
 
