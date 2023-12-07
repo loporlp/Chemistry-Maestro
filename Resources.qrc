@@ -27,5 +27,14 @@
         <file>UI/zinc.png</file>
         <file>UI/water.png</file>
         <file>UI/DavidJohnsTin.png</file>
+        <file>UI/How to Play Popup.png</file>
+        <file>UI/Level 1 Hint.png</file>
+        <file>UI/Level 1 Instructions.png</file>
+        <file>UI/Level 2 Hint.png</file>
+        <file>UI/Level 2 Instructions.png</file>
+        <file>UI/Level 3 Hint.png</file>
+        <file>UI/Level 3 Instructions.png</file>
+        <file>UI/Level 4 Hint.png</file>
+        <file>UI/Level 4 Instructions.png</file>
     </qresource>
 </RCC>

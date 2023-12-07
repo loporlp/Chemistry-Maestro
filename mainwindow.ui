@@ -405,7 +405,14 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Hydrogen is a clean alternative to methane, also known as natural gas.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It's the most abundant chemical element, estimated to contribute 75% of the mass of the universe.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -439,7 +446,14 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Helium is the second lightest and second most common element in the universe.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It is at the top of the noble gas group in the periodic table.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -473,7 +487,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Carbon is one of the most important elements to life on planet Earth.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It forms more compounds than any other element and forms the basis to all plant and animal life. Carbon is the fourth most abundant element in the universe by mass and the second most abundant element in the human body.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -507,7 +529,16 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Nitrogen is the first element in column 15 of the periodic table.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It is part of the group of &quot;other&quot; nonmetal elements. Nitrogen atoms have seven electrons and 7 protons with five electrons in the outer shell.
+Nitrogen plays an important role in the life of plants and animals on Earth through the nitrogen cycle.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -541,7 +572,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Oxygen is an important element that is needed by most life forms on Earth to survive.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It is the third most abundant element in the universe and the most abundant element in the human body. Oxygen has 8 electrons and 8 protons. It is located at the top of column 16 in the periodic table.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -575,7 +614,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Sodium is an alkali metal located in the first group or column of the periodic table.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;The sodium atom has 11 electrons and 11 protons with one valence electron in the outer shell.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -609,7 +656,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Aluminum is the second element in the thirteenth column of the periodic table.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It is classified as a post-transition metal and a &quot;poor metal&quot;. Aluminum atoms contain 13 electrons and 13 protons. There are 3 valence electrons in the outer shell.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -643,7 +698,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Potassium is the fourth element in the first column of the periodic table.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It is classified as an alkali metal. Potassium atoms have 19 electrons and 19 protons with one valence electron in the outer shell. Potassium is considered chemically similar to sodium, the alkali metal above it on the periodic table.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -677,7 +740,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Calcium is the third element in the second column of the periodic table.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It is classified as an alkaline earth metal. Calcium atoms have 20 electrons and 20 protons. There are 2 valence electrons in the outer shell. Calcium is an important element for life on Earth and is the fifth most abundant element in the Earth's crust.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -711,7 +782,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Iron is the first element in the eighth column of the periodic table.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It is classified as a transition metal. Iron atoms have 26 electrons and 26 protons with 30 neutrons occuring in the most abundant isotope. It is the sixth most abundant element in the universe.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -745,7 +824,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Nickel is the first element in the tenth column of the periodic table.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It is classified as a transition metal. Nickel atoms have 28 electrons and 28 protons with 30 neutrons in the most abundant isotope.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -779,7 +866,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Copper is the first element in the eleventh column of the periodic table.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It is classified as a transition metal. Copper atoms have 29 electrons and 29 protons with 34 neutrons in the most abundant isotope. Copper was one of the first metals to be used by man.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -813,7 +908,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Zinc is the first element of the twelfth column of the periodic table.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It is classified as a transition metal. Zinc atoms have 30 electrons and 30 protons with 34 neutrons in the most abundant isotope.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -847,7 +950,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Silver is the second element in the eleventh column of the periodic table.&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It is classified as a transitional metal. Silver atoms have 47 electrons and 47 protons with 60 neutrons in the most abundant isotope.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -881,7 +992,15 @@ QPushButton:pressed {
        </rect>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hydrogen info&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;Tin is the fourth element of the fourteenth column of the periodic table..&lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; font-style:italic; color:#53565a; background-color:#ffffff;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-family:'helvetica neue lt w01','helvetica neue','sans-serif'; font-size:21px; color:#53565a; background-color:#ffffff;&quot;&gt;It is classified as a post-transition metal. Tin atoms have 50 electrons and 50 protons with 4 valence electrons in the outer shell.
+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -924,6 +1043,52 @@ QPushButton:pressed {
        <enum>QFrame::Raised</enum>
       </property>
      </widget>
+     <widget class="QFrame" name="LevelInstructionModal">
+      <property name="geometry">
+       <rect>
+        <x>169</x>
+        <y>-1</y>
+        <width>831</width>
+        <height>600</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/UI/UI/Level 1 Instructions.png);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="closeLevelInstructionButton">
+       <property name="geometry">
+        <rect>
+         <x>770</x>
+         <y>40</y>
+         <width>31</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background: transparent;
+	border-radius: 10px;
+}
+
+QPushButton:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+QPushButton:pressed {
+    background: rgba(0, 0, 0, 0.5);
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
      <zorder>beakerFrame</zorder>
      <zorder>restartButton</zorder>
      <zorder>level1Button</zorder>
@@ -950,6 +1115,7 @@ QPushButton:pressed {
      <zorder>silverButton</zorder>
      <zorder>tinButton</zorder>
      <zorder>popupModal</zorder>
+     <zorder>LevelInstructionModal</zorder>
     </widget>
    </widget>
   </widget>

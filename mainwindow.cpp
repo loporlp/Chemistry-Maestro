@@ -245,6 +245,10 @@ void MainWindow::showGameScreen()
 {
     // Switch to the game screen
     ui->stackedWidget->setCurrentIndex(1);
+
+    showLevelInstructionsPopup(1);
+    ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/GameScreenBackground.png);");
+
     // model signals.
     emit clearScene();
     emit updateLevel(0);
@@ -257,7 +261,8 @@ void MainWindow::showGameScreen()
 void MainWindow::restartGame()
 {
     // Clear the display labels in each level tab
-    resetLevelData(currentLevel);
+//    resetLevelData(currentLevel);
+    resetLevelData(1);
 
     // Switch to the start screen
     ui->stackedWidget->setCurrentIndex(0);
@@ -268,7 +273,7 @@ void MainWindow::restartGame()
 void MainWindow::showStatsPopup()
 {
     ui->popupModal->setVisible(true);
-    setLableVisible(false);
+    setLabelVisible(false);
 
     // Connect the closeButton's clicked signal to a slot
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
@@ -278,7 +283,23 @@ void MainWindow::showStatsPopup()
 void MainWindow::showHintsPopup()
 {
     ui->popupModal->setVisible(true);
-    setLableVisible(false);
+    setLabelVisible(false);
+
+    switch(currentLevel)
+    {
+    case 1:
+        ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Level 1 Hint.png);");
+        break;
+    case 2:
+        ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Level 2 Hint.png);");
+        break;
+    case 3:
+        ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Level 3 Hint.png);");
+        break;
+    case 4:
+        ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Level 4 Hint.png);");
+        break;
+    }
 
     // Connect the closeButton's clicked signal to a slot
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
@@ -288,7 +309,9 @@ void MainWindow::showHintsPopup()
 void MainWindow::showHowToPlayPopup()
 {
     ui->popupModal->setVisible(true);
-    setLableVisible(false);
+    setLabelVisible(false);
+
+    ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/How to Play Popup.png);");
 
     // Connect the closeButton's clicked signal to a slot
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
@@ -297,7 +320,7 @@ void MainWindow::showHowToPlayPopup()
 
 // Function to handle the closeButton click
 void MainWindow::onCloseButtonClicked() {
-    setLableVisible(true);
+    setLabelVisible(true);
     if (ui->popupModal->isVisible()) {
         ui->popupModal->setVisible(false);
     }
@@ -352,6 +375,8 @@ void MainWindow::onLevelButtonClicked()
     {
         // Set the background image for level 1
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/GameScreenBackground.png);");
+        //ui->LevelInstructionModal->setStyleSheet("background-image: url(:/UI/UI/Level 1 Instructions.png);");
+        showLevelInstructionsPopup(1);
 
         // remove the chemicals added to the world, change the current level value
         resetLevelData(1);
@@ -362,6 +387,8 @@ void MainWindow::onLevelButtonClicked()
     {
         // Set the background image for level 2
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL2.png);");
+        //ui->LevelInstructionModal->setStyleSheet("background-image: url(:/UI/UI/Level 2 Instructions.png);");
+        showLevelInstructionsPopup(2);
 
         // remove the chemicals added to the world, change the current level value
         resetLevelData(2);
@@ -372,6 +399,8 @@ void MainWindow::onLevelButtonClicked()
     {
         // Set the background image for level 3
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL3.png);");
+        //ui->LevelInstructionModal->setStyleSheet("background-image: url(:/UI/UI/Level 3 Instructions.png);");
+        showLevelInstructionsPopup(3);
 
         // remove the chemicals added to the world, change the current level value
         resetLevelData(3);
@@ -382,6 +411,8 @@ void MainWindow::onLevelButtonClicked()
     {
         // Set the background image for level 4
         ui->gameScreen->setStyleSheet("background-image: url(:/UI/UI/Game Screen-LEVEL4.png);");
+        //ui->LevelInstructionModal->setStyleSheet("background-image: url(:/UI/UI/Level 4 Instructions.png);");
+        showLevelInstructionsPopup(4);
 
         // remove the chemicals added to the world, change the current level value
         resetLevelData(4);
@@ -393,12 +424,52 @@ void MainWindow::onLevelButtonClicked()
 
 }
 
+void MainWindow::showLevelInstructionsPopup(int selectedLevel)
+{
+    // Set the background image based on the current level
+    switch(selectedLevel)
+    {
+    case 1:
+        ui->LevelInstructionModal->setStyleSheet("background-image: url(:/UI/UI/Level 1 Instructions.png);");
+        break;
+
+    case 2:
+        ui->LevelInstructionModal->setStyleSheet("background-image: url(:/UI/UI/Level 2 Instructions.png);");
+        break;
+
+    case 3:
+        ui->LevelInstructionModal->setStyleSheet("background-image: url(:/UI/UI/Level 3 Instructions.png);");
+        break;
+
+    case 4:
+        ui->LevelInstructionModal->setStyleSheet("background-image: url(:/UI/UI/Level 4 Instructions.png);");
+        break;
+    }
+
+    // Make the modal visible and hide other elements
+    ui->LevelInstructionModal->setVisible(true);
+    //setLabelVisible(false);
+
+    // Connect the closeButton's clicked signal to a slot
+    connect(ui->closeLevelInstructionButton, &QPushButton::clicked, this, &MainWindow::onCloseLevelInstructionButtonClicked);
+}
+
+void MainWindow::onCloseLevelInstructionButtonClicked()
+{
+    // Close the modal when the close button is clicked
+    ui->LevelInstructionModal->setVisible(false);
+
+    // Optionally, show other elements again if needed
+    //setLabelVisible(true);
+}
+
+
 void MainWindow::onChemicalButtonClicked()
 {
     // Test run
 }
 
-void MainWindow::setLableVisible(bool visible){
+void MainWindow::setLabelVisible(bool visible){
     for(auto label : bodyDisplays)
     {
         label->setVisible(visible);
@@ -432,15 +503,19 @@ void MainWindow::onSuccessfulCombination(molecule newMolecule){
     {
     case 1:
         addChemical(":/UI/UI/water.png");
+        //unlock level 2 TODO
         break;
     case 2:
         addChemical(":/UI/UI/water.png");
+        //unlock level 3 TODO
         break;
     case 3:
         addChemical(":/UI/UI/water.png");
+        //unlock level 4 TODO
         break;
     case 4:
         addChemical(":/UI/UI/water.png");
+        //Display game over/final stats screen TODO
         break;
     }
 
