@@ -1046,7 +1046,7 @@ QPushButton:pressed {
      <widget class="QFrame" name="LevelInstructionModal">
       <property name="geometry">
        <rect>
-        <x>169</x>
+        <x>168</x>
         <y>-1</y>
         <width>831</width>
         <height>600</height>

@@ -228,6 +228,14 @@ void MainWindow::setupGameScreen()
     connect(ui->level3Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
     connect(ui->level4Button, &QPushButton::clicked, this, &MainWindow::onLevelButtonClicked);
 
+//    ui->level2Button->setDisabled(true);
+//    ui->level3Button->setDisabled(true);
+//    ui->level4Button->setDisabled(true);
+
+//    ui->level2Button->setIcon(QIcon(":/UI/UI/lockIcon.png"));
+//    ui->level3Button->setIcon(QIcon(":/UI/UI/lockIcon.png"));
+//    ui->level4Button->setIcon(QIcon(":/UI/UI/lockIcon.png"));
+
     // Connect slots for the Chemical buttons
 
     //    ui->popupModal->setVisible(false);
@@ -261,7 +269,7 @@ void MainWindow::showGameScreen()
 void MainWindow::restartGame()
 {
     // Clear the display labels in each level tab
-//    resetLevelData(currentLevel);
+    //    resetLevelData(currentLevel);
     resetLevelData(1);
 
     // Switch to the start screen
@@ -274,6 +282,8 @@ void MainWindow::showStatsPopup()
 {
     ui->popupModal->setVisible(true);
     setLabelVisible(false);
+
+    //ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Level 1 Score Popup.png);");
 
     // Connect the closeButton's clicked signal to a slot
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
@@ -329,7 +339,6 @@ void MainWindow::onCloseButtonClicked() {
 
 void MainWindow::onClearButtonClicked()
 {
-    //TODO
     emit clearScene();
     resetLevelData();
 }
@@ -359,8 +368,6 @@ void MainWindow::resetLevelData(int32 newLevelValue)
 
 void MainWindow::onLevelButtonClicked()
 {
-    //TODO
-
     // Check which level button was clicked
     QPushButton* clickedButton = qobject_cast<QPushButton*>(sender());
 
@@ -426,6 +433,7 @@ void MainWindow::onLevelButtonClicked()
 
 void MainWindow::showLevelInstructionsPopup(int selectedLevel)
 {
+
     // Set the background image based on the current level
     switch(selectedLevel)
     {
@@ -448,16 +456,19 @@ void MainWindow::showLevelInstructionsPopup(int selectedLevel)
 
     // Make the modal visible and hide other elements
     ui->LevelInstructionModal->setVisible(true);
+    ui->howToPlayButton->setDisabled(true);
     //setLabelVisible(false);
 
     // Connect the closeButton's clicked signal to a slot
     connect(ui->closeLevelInstructionButton, &QPushButton::clicked, this, &MainWindow::onCloseLevelInstructionButtonClicked);
 }
 
+
 void MainWindow::onCloseLevelInstructionButtonClicked()
 {
     // Close the modal when the close button is clicked
     ui->LevelInstructionModal->setVisible(false);
+    ui->howToPlayButton->setDisabled(false);
 
     // Optionally, show other elements again if needed
     //setLabelVisible(true);
@@ -499,19 +510,28 @@ void MainWindow::onSuccessfulCombination(molecule newMolecule){
     qDebug() << "Made water!";
     qDebug() << &newMolecule;
 
+
     switch(currentLevel)
     {
     case 1:
         addChemical(":/UI/UI/water.png");
         //unlock level 2 TODO
+        //ui->level2Button->setDisabled(false);
+        //ui->popupModal->setStyleSheet("background-image: url(:/UI/UI/Level 1 Score Popup.png);");
+        //showStatsPopup();
+
         break;
     case 2:
         addChemical(":/UI/UI/water.png");
         //unlock level 3 TODO
+        //ui->level3Button->setDisabled(false);
+
         break;
     case 3:
         addChemical(":/UI/UI/water.png");
         //unlock level 4 TODO
+        //ui->level4Button->setDisabled(false);
+
         break;
     case 4:
         addChemical(":/UI/UI/water.png");

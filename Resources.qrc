@@ -36,5 +36,7 @@
         <file>UI/Level 3 Instructions.png</file>
         <file>UI/Level 4 Hint.png</file>
         <file>UI/Level 4 Instructions.png</file>
+        <file>UI/lockIcon.png</file>
+        <file>UI/Level 1 Score Popup.png</file>
     </qresource>
 </RCC>
