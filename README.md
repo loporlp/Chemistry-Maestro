@@ -32,7 +32,7 @@ To build and run Chemistry Maestro, follow these steps:
 ### Steps
 1. Clone the repository:
     ```bash
-    git clone https://github.com/YourUsername/ChemistryMaestro.git
+    git clone https://github.com/loporlp/ChemistryMaestro.git
     ```
 2. Open Qt Creator and load the `ChemistryMaestro.pro` project file.
 3. Ensure that the Box2D library is correctly linked in your project settings.
